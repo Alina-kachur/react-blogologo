@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-const ligtTheme = css`
+const lightTheme = css`
   html[theme="light"] {
     --light-bg: #f3f3f3;
     --white: #ffffff;
@@ -18,4 +18,4 @@ const darkTheme = css`
     --light-button: #6f6e73;
   }
 `;
-export { darkTheme, ligtTheme };
+export { darkTheme, lightTheme };
