@@ -1,9 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { MainTemplate } from "../components/MainTemplate/MainTemplate";
 import { RequareAuth } from "../components/RequareAuth/RequareAuth";
-import { FavoritesPage } from "../pages/FavoritesPage";
-import { HomePage } from "../pages/HomePage";
-import { NotFoundPage } from "../pages/NotFoundPage";
+import { FavoritesPage, HomePage, NotFoundPage } from "../pages";
 import { ROUTE } from "./routes";
 
 export const router = createBrowserRouter(
