@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ROUTE } from "../../router/routes";
+import { ROUTE } from "../../router";
+
 import { StyledHeader } from "./styles";
 
 export const Header = () => {
