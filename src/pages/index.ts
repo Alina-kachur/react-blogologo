@@ -1,10 +1,10 @@
-import { NotFoundPage } from "./NotFoundPage";
-import { HomePage } from "./HomePage";
-import { FavoritesPage } from "./FavoritesPage";
-import { SignInPage } from "./SignInPage";
-import { SignUpPage } from "./SignUpPage";
-import { ResetPasswordPage } from "./ResetPasswordPage";
-import { SearchPage } from "./SearchPage";
+import { NotFoundPage } from "./NotFoundPage/NotFoundPage";
+import { HomePage } from "./HomePage/HomePage";
+import { FavoritesPage } from "./FavoritesPage/FavoritesPage";
+import { SignInPage } from "./SignInPage/SignInPage";
+import { SignUpPage } from "./SignUpPage/SignUpPage";
+import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
+import { SearchPage } from "./SearchPage/SearchPage";
 
 export {
   NotFoundPage,
