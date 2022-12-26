@@ -6,9 +6,11 @@ const StyledSwitchTheme = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 150px;
+  width: 170px;
 `;
-const StyledText = styled.p``;
+const StyledText = styled.p`
+  ${Typography.S1}
+`;
 
 const SwitchThemeButton = styled.label`
   position: relative;
