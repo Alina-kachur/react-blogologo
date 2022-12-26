@@ -68,4 +68,4 @@ const B2 = css`
 
   color: #323537;
 `;
-export { H1, H2, H3, S1, B1, B2 };
+export const Typography = { H1, H2, H3, S1, B1, B2 };

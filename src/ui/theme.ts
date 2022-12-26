@@ -7,6 +7,7 @@ const lightTheme = css`
     --secondary-text: #313037;
     --medium-text: #6f6e73;
     --light-button: #eaeaeb;
+    --switch-theme-button: #c1c1c3;
   }
 `;
 const darkTheme = css`
@@ -16,6 +17,7 @@ const darkTheme = css`
     --secondary-text: #ffffff;
     --medium-text: #c1c1c3;
     --light-button: #6f6e73;
+    --switch-theme-button: #912ef2;
   }
 `;
 export { darkTheme, lightTheme };
