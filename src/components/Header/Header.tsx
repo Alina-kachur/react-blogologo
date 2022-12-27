@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
-import { ReactComponent as LogoIcon } from "../../assets/icons/logo.svg";
 import { StyledHeader, StyledLink } from "./styles";
-import { StyledSearch } from "components/Search/styles";
 import { ROUTE } from "router";
+import { useInput } from "hooks";
+import { LogoIcon } from "assets/icons";
+import { Search } from "components/Search/Search";
 
 export const Header = () => {
+  const search = useInput();
+
   return (
     <StyledHeader>
       <StyledLink to={ROUTE.HOME}>
         <LogoIcon />
       </StyledLink>
-      <StyledSearch type={"text"} placeholder="Search..." />
+      <Search type="text" placeholder="Search..." {...search} />
       <Link to={ROUTE.FAVORITES}>Favorites</Link>
     </StyledHeader>
   );

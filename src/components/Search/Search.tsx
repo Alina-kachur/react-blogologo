@@ -1,5 +1,6 @@
-import { StyledSearch } from "./styles";
-import { HTMLInputTypeAttribute, ChangeEvent } from "react";
+import { StyledCloseIcon, StyledInput, StyledSearch, StyledSearchIcon } from "./styles";
+import { HTMLInputTypeAttribute, ChangeEvent, useEffect } from "react";
+import { useToggle } from "hooks";
 
 interface ISearch {
   type: HTMLInputTypeAttribute;
@@ -9,5 +10,26 @@ interface ISearch {
 }
 
 export const Search = (props: ISearch) => {
-  return <StyledSearch {...props} />;
+  const [isActiveSearch, toggleIsActiveSearch] = useToggle();
+  const handleSearch = () => {
+    toggleIsActiveSearch();
+  };
+  // useEffect(() => {
+  //   handleSearch();
+  // }, []);
+
+  return (
+    <>
+      {isActiveSearch ? (
+        <StyledSearch>
+          <StyledInput placeholder="Search..." type="search" />
+          <StyledCloseIcon onClick={handleSearch} />
+        </StyledSearch>
+      ) : (
+        <>
+          <StyledSearchIcon onClick={handleSearch} />
+        </>
+      )}
+    </>
+  );
 };
