@@ -4,9 +4,9 @@ import { Color } from "ui";
 
 const StyledUserAccount = styled.div`
   /* justify-self: flex-end; */
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
   padding-left: 20px;
   border-left: 1px solid ${Color.LIGHT};
   height: 100%;
