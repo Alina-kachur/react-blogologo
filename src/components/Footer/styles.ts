@@ -28,7 +28,7 @@ const StyledFooter = styled.footer`
   } */
 `;
 const CopyRight = styled.p`
-  ${Typography.B2};
+  ${Typography.S1};
   color: ${Color.MEDIUM_TEXT};
 `;
 

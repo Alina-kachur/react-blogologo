@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Color } from "ui";
 
 const StyledUserAccount = styled.div`
-  /* justify-self: flex-end; */
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;

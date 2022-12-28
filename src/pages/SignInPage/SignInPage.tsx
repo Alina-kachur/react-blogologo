@@ -1,3 +1,9 @@
+import { SignInForm } from "components";
+
 export const SignInPage = () => {
-  return <div>SignInPage</div>;
+  return (
+    <div>
+      <SignInForm />
+    </div>
+  );
 };

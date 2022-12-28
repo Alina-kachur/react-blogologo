@@ -40,7 +40,7 @@ const H3 = css`
 const S1 = css`
   font-family: "Inter";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   line-height: 24px;
 

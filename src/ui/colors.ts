@@ -15,4 +15,5 @@ export enum Color {
   MEDIUM_TEXT = "var(--medium-text)",
   LIGHT_BUTTON = "var(--light-button)",
   SWITCH_THEME_BUTTON = "var(--switch-theme-button)",
+  LIGHT_CARDS = "var(--light-cards)",
 }

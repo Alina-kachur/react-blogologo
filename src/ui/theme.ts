@@ -8,6 +8,7 @@ const lightTheme = css`
     --medium-text: #6f6e73;
     --light-button: #eaeaeb;
     --switch-theme-button: #c1c1c3;
+    --light-cards: #ffffff;
   }
 `;
 const darkTheme = css`
@@ -18,6 +19,7 @@ const darkTheme = css`
     --medium-text: #c1c1c3;
     --light-button: #6f6e73;
     --switch-theme-button: #912ef2;
+    --light-cards: #c1c1c3;
   }
 `;
 export { darkTheme, lightTheme };
