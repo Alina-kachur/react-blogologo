@@ -1,11 +1,35 @@
 import styled from "styled-components";
-import { Color } from "../../ui";
+import { Color, Media, Typography } from "ui";
 
 const StyledFooter = styled.footer`
-  min-height: 92px;
-  background-color: ${Color.LIGHT_BACKGROUND};
   display: flex;
+  padding: 34px 0;
+  width: 68%;
   justify-content: space-between;
-  width: clamp(320px, 1120px, 100%);
+  align-items: center;
+  border-top: 1.5px solid ${Color.LIGHT};
+  background-color: ${Color.LIGHT_BACKGROUND};
+
+  /* ${Media.LG} {
+    width: 80%;
+  }
+
+  ${Media.MD} {
+    width: 90%;
+  }
+
+  ${Media.SM} {
+    width: 90%;
+  } */
+  /* ${Media.XS} {
+    width: 90%;
+    flex-direction: column;
+    gap: 15px;
+  } */
 `;
-export { StyledFooter };
+const CopyRight = styled.p`
+  ${Typography.B2};
+  color: ${Color.MEDIUM_TEXT};
+`;
+
+export { StyledFooter, CopyRight };
