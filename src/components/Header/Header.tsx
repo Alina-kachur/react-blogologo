@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import { StyledHeader, StyledLink } from "./styles";
 import { ROUTE } from "router";
 import { useInput } from "hooks";
 import { LogoIcon } from "assets/icons";
 import { Search } from "components/Search/Search";
+import { UserAccount } from "components/UserAccount/UserAccount";
 
 export const Header = () => {
   const search = useInput();
@@ -14,7 +14,7 @@ export const Header = () => {
         <LogoIcon />
       </StyledLink>
       <Search type="text" placeholder="Search..." {...search} />
-      <Link to={ROUTE.FAVORITES}>Favorites</Link>
+      <UserAccount />
     </StyledHeader>
   );
 };

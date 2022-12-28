@@ -6,6 +6,7 @@ const StyledSearch = styled.div`
   display: grid;
   grid-template-columns: 98% 2%;
   align-items: center;
+  padding: 0 20px;
 
   /* border: none; */
 `;
@@ -46,7 +47,9 @@ const StyledInput = styled.input`
 
 const StyledSearchIcon = styled(SearchIcon)`
   cursor: pointer;
+  margin-right: 20px;
   justify-self: flex-end;
+
   /* fill: ${Color.MEDIUM_TEXT}; */
 `;
 

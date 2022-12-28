@@ -4,5 +4,6 @@ import { MainTemplate } from "./MainTemplate/MainTemplate";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { Search } from "./Search/Search";
 import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
+import { UserAccount } from "./UserAccount/UserAccount";
 
-export { Footer, Header, MainTemplate, RequareAuth, Search, SwitchTheme };
+export { Footer, Header, MainTemplate, RequareAuth, Search, SwitchTheme, UserAccount };

@@ -5,7 +5,7 @@ import { Color } from "../../ui/colors";
 const StyledHeader = styled.header`
   background-color: ${Color.WHITE_HEADER};
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
   align-items: center;
   width: 100%;
   padding: 20px 32px;
