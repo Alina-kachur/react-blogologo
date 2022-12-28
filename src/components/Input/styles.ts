@@ -16,6 +16,7 @@ const StyledInput = styled.input`
   &:hover,
   &:focus {
     border: 1px solid ${Color.PRIMARY};
+    transition-duration: 0.5s;
   }
   &:active {
     color: ${Color.MEDIUM_TEXT};

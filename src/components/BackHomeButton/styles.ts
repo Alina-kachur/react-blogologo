@@ -4,6 +4,7 @@ import { Color, Typography } from "ui";
 
 const StyledBackHomeButton = styled.button`
   padding: 10px;
+  margin-top: 30px;
   border-radius: 5px;
   ${Typography.S1}
   color: ${Color.WHITE};
@@ -11,6 +12,7 @@ const StyledBackHomeButton = styled.button`
   border: none;
   :hover {
     background-color: ${Color.PRIMARY_LIGHT};
+    transition-duration: 0.5s;
   }
 `;
 

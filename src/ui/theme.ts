@@ -5,21 +5,21 @@ const lightTheme = css`
     --light-bg: #f3f3f3;
     --white: #ffffff;
     --secondary-text: #313037;
-    --medium-text: #6f6e73;
+    --medium-text: #5a595f;
     --light-button: #eaeaeb;
-    --switch-theme-button: #c1c1c3;
+    --switch-theme-button: #98989b;
     --light-cards: #ffffff;
   }
 `;
 const darkTheme = css`
   html[theme="dark"] {
     --light-bg: #313037;
-    --white: #6f6e73;
+    --white: #5a595f;
     --secondary-text: #ffffff;
-    --medium-text: #c1c1c3;
-    --light-button: #6f6e73;
+    --medium-text: #98989b;
+    --light-button: #5a595f;
     --switch-theme-button: #912ef2;
-    --light-cards: #c1c1c3;
+    --light-cards: #98989b;
   }
 `;
 export { darkTheme, lightTheme };

@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { Color, Typography } from "ui";
 
 const StyledSignInForm = styled.form`
-  min-height: 472px;
-  min-width: 624px;
+  width: clamp(272px, 724px, 100%);
   background-color: ${Color.WHITE_HEADER};
   border-radius: 16px;
   padding: 40px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 `;
 const ForgotText = styled.p`
   color: ${Color.SECONDARY_TEXT};
@@ -17,6 +17,7 @@ const ForgotText = styled.p`
   padding-top: 7px;
   :hover {
     text-decoration: underline;
+    transition-duration: 0.5s;
   }
 `;
 
@@ -36,6 +37,7 @@ const SignInButton = styled.button`
   margin-top: 50px;
   :hover {
     background-color: ${Color.PRIMARY_LIGHT};
+    transition-duration: 0.5s;
   }
 `;
 

@@ -1,10 +1,10 @@
 export enum Media {
-  XXS = "@(min-with: 320px)",
-  XS = "@(min-with: 375px)",
-  SM = "@(min-with: 568px)",
-  MD = "@(min-with: 768px)",
-  LG = "@(min-with: 1024px)",
-  XL = "@(min-with: 1280px)",
-  XXL = "@(min-with: 1440px)",
-  XXXL = "@(min-with: 1920px)",
+  XXS = "@(max-with: 320px)",
+  XS = "@(max-with: 375px)",
+  SM = "@(max-with: 568px)",
+  MD = "@(max-with: 768px)",
+  LG = "@(max-with: 1024px)",
+  XL = "@(max-with: 1280px)",
+  XXL = "@(max-with: 1440px)",
+  XXXL = "@(max-with: 1920px)",
 }
