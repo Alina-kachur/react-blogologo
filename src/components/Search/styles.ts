@@ -47,6 +47,7 @@ const StyledInput = styled.input`
 const StyledSearchIcon = styled(SearchIcon)`
   cursor: pointer;
   justify-self: flex-end;
+  /* fill: ${Color.MEDIUM_TEXT}; */
 `;
 
 const StyledCloseIcon = styled(CloseIcon)`
