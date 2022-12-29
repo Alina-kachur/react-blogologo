@@ -1,3 +1,10 @@
+import { SignUpForm } from "components";
+import { WrapperPage } from "./styles";
+
 export const SignUpPage = () => {
-  return <div>SignUpPage</div>;
+  return (
+    <WrapperPage>
+      <SignUpForm />
+    </WrapperPage>
+  );
 };
