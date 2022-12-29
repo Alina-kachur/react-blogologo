@@ -55,6 +55,10 @@ const SignInNavLink = styled(NavLink)`
     transition-duration: 0.5s;
   }
 `;
+const TextErrors = styled.p`
+  ${S1}
+  color: ${Color.ERROR};
+`;
 const TitleForm = styled.h1`
   ${H1};
   color: ${Color.SECONDARY_TEXT};
@@ -72,4 +76,5 @@ export {
   SignInButton,
   SignInText,
   SignInNavLink,
+  TextErrors,
 };

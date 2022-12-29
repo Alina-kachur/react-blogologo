@@ -6,5 +6,16 @@ import { Search } from "./Search/Search";
 import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
 import { UserAccount } from "./UserAccount/UserAccount";
 import { SignInForm } from "./SignInForm/SignInForm";
+import { SignUpForm } from "./SignUpForm/SignUpForm";
 
-export { Footer, Header, MainTemplate, RequareAuth, Search, SwitchTheme, UserAccount, SignInForm };
+export {
+  Footer,
+  Header,
+  MainTemplate,
+  RequareAuth,
+  Search,
+  SwitchTheme,
+  UserAccount,
+  SignInForm,
+  SignUpForm,
+};

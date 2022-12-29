@@ -9,7 +9,8 @@ const StyledSwitchTheme = styled.div`
   width: 170px;
 `;
 const StyledText = styled.p`
-  ${S1}
+  ${S1};
+  color: ${Color.MEDIUM_TEXT};
 `;
 
 const SwitchThemeButton = styled.label`

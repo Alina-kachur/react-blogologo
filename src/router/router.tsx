@@ -1,8 +1,7 @@
+import { MainTemplate } from "components";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-import { MainTemplate } from "../components/MainTemplate/MainTemplate";
-import { RequareAuth } from "../components/RequareAuth/RequareAuth";
+
 import {
-  FavoritesPage,
   HomePage,
   NotFoundPage,
   ResetPasswordPage,
@@ -21,9 +20,6 @@ export const router = createBrowserRouter(
       <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
       <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
-      {/* <Route element={<RequareAuth />}>
-        <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
-      </Route> */}
     </Route>,
   ),
 );

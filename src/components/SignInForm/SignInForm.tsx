@@ -9,6 +9,7 @@ import {
   SignInNavLink,
   SignInText,
   StyledSignInForm,
+  TextErrors,
   TitleForm,
 } from "./styles";
 import { ROUTE } from "router";
@@ -42,13 +43,13 @@ export const SignInForm = () => {
             pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
           })}
         />
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && <TextErrors>{errors.email.message}</TextErrors>}
         <SignInLabel>Password</SignInLabel>
         <StyledInput
           type="password"
           placeholder="Your password"
           {...register("password", {
-            required: "* password is required",
+            required: "* Password is required",
             maxLength: { value: 25, message: "* max 15 characters" },
             minLength: {
               value: 6,
@@ -56,14 +57,14 @@ export const SignInForm = () => {
             },
           })}
         />
-        {errors.password && <p>{errors.password.message}</p>}
+        {errors.password && <TextErrors>{errors.password.message}</TextErrors>}
         <ResetPasswordLink to={"../" + ROUTE.RESET_PASSWORD}>
           <ForgotText>Forgot password?</ForgotText>
         </ResetPasswordLink>
         <SignInButton>Sign In</SignInButton>
         <SignInText>
           Don’t have an account?
-          <SignInNavLink to={"../" + ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
+          <SignInNavLink to={ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
         </SignInText>
       </StyledSignInForm>
     </>
