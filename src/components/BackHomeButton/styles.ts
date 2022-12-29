@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { Color, S1 } from "ui";
 
 const StyledBackHomeButton = styled.button`
   padding: 10px;
   margin-top: 30px;
   border-radius: 5px;
-  ${Typography.S1}
+  ${S1}
   color: ${Color.WHITE};
   background-color: ${Color.PRIMARY};
   border: none;

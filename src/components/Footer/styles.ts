@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Media, Typography } from "ui";
+import { Color, Media, S1 } from "ui";
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -28,7 +28,7 @@ const StyledFooter = styled.footer`
   } */
 `;
 const CopyRight = styled.p`
-  ${Typography.S1};
+  ${S1};
   color: ${Color.MEDIUM_TEXT};
 `;
 

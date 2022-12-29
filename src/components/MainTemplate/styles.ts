@@ -11,5 +11,6 @@ const WrapperOutlet = styled.div`
   flex-grow: 1;
   display: grid;
   width: 68%;
+  /* margin: 0 auto; */
 `;
 export { StyledMainTemplate, WrapperOutlet };

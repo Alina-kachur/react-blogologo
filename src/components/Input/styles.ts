@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { B1, Color } from "ui";
 
 const StyledInput = styled.input`
   width: 100%;
@@ -8,9 +8,9 @@ const StyledInput = styled.input`
   border-radius: 5px;
   border: 1px solid ${Color.EXTRA_LIGHT};
   background-color: ${Color.LIGHT_CARDS};
-  ${Typography.B1}
+  ${B1}
   &::placeholder {
-    ${Typography.B1}
+    ${B1}
     color: ${Color.MEDIUM_TEXT};
   }
   &:hover,

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { B2, Color, H1, S1 } from "ui";
 
 const StyledSignInForm = styled.form`
   width: clamp(272px, 724px, 100%);
@@ -13,7 +13,7 @@ const StyledSignInForm = styled.form`
 `;
 const ForgotText = styled.p`
   color: ${Color.SECONDARY_TEXT};
-  ${Typography.S1};
+  ${S1};
   padding-top: 7px;
   :hover {
     text-decoration: underline;
@@ -22,12 +22,12 @@ const ForgotText = styled.p`
 `;
 
 const SignInLabel = styled.label`
-  ${Typography.B2};
+  ${B2};
   color: ${Color.SECONDARY_TEXT};
   margin-top: 20px;
 `;
 const SignInButton = styled.button`
-  ${Typography.B2};
+  ${B2};
   color: ${Color.WHITE};
   background-color: ${Color.PRIMARY};
   border: none;
@@ -42,7 +42,7 @@ const SignInButton = styled.button`
 `;
 
 const TitleForm = styled.h1`
-  ${Typography.H1};
+  ${H1};
   color: ${Color.SECONDARY_TEXT};
 `;
 

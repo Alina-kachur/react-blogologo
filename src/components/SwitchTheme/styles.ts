@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Color } from "ui";
-import { Typography } from "ui/typography";
+import { S1 } from "ui/typography";
 
 const StyledSwitchTheme = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const StyledSwitchTheme = styled.div`
   width: 170px;
 `;
 const StyledText = styled.p`
-  ${Typography.S1}
+  ${S1}
 `;
 
 const SwitchThemeButton = styled.label`
@@ -51,7 +51,7 @@ const SwitchThemeButton = styled.label`
   }
 
   input:checked + span {
-    background-color: ${Color.PRIMARY_LIGHT};
+    background-color: ${Color.PRIMARY};
   }
 
   input:focus + span {

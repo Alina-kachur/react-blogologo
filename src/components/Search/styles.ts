@@ -1,6 +1,6 @@
 import { CloseIcon, SearchIcon } from "assets/icons";
 import styled from "styled-components";
-import { Color, Typography } from "ui";
+import { B1, Color } from "ui";
 
 const StyledSearch = styled.div`
   display: grid;
@@ -11,14 +11,14 @@ const StyledSearch = styled.div`
   /* border: none; */
 `;
 const StyledInput = styled.input`
-  ${Typography.B1}
+  ${B1}
   padding: 10px 10px;
   border: 1px solid ${Color.EXTRA_LIGHT};
   border-radius: 5px;
   background-color: ${Color.WHITE_HEADER};
 
   &::placeholder {
-    ${Typography.B1}
+    ${B1}
     color: ${Color.MEDIUM_TEXT};
   }
   &:hover,
