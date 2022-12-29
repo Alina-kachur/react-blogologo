@@ -9,7 +9,6 @@ const H1 = css`
   font-size: 56px;
   line-height: 80px;
 
-  color: ${Color.SECONDARY_TEXT};
   ${Media.XS} {
     font-size: 32px;
     line-height: 48px;
@@ -21,8 +20,6 @@ const H2 = css`
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
-
-  color: ${Color.SECONDARY_TEXT};
   ${Media.XS} {
     font-size: 24px;
     line-height: 36px;
@@ -34,8 +31,6 @@ const H3 = css`
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
-
-  color: ${Color.SECONDARY_TEXT};
 `;
 const S1 = css`
   font-family: "Inter";
@@ -43,8 +38,6 @@ const S1 = css`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-
-  color: ${Color.MEDIUM_TEXT};
 `;
 const B1 = css`
   font-family: "Inter";
@@ -52,8 +45,6 @@ const B1 = css`
   font-weight: 400;
   font-size: 18px;
   line-height: 32px;
-
-  color: ${Color.SECONDARY_TEXT};
 
   ${Media.XS} {
     font-size: 16px;
@@ -66,7 +57,5 @@ const B2 = css`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-
-  color: ${Color.SECONDARY_TEXT};
 `;
 export { H1, H2, H3, S1, B1, B2 };
