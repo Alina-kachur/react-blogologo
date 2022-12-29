@@ -40,12 +40,36 @@ const SignInButton = styled.button`
     transition-duration: 0.5s;
   }
 `;
-
+const SignInText = styled.p`
+  color: ${Color.SECONDARY_TEXT};
+  ${S1};
+  padding-top: 10px;
+  text-align: center;
+`;
+const SignInNavLink = styled(NavLink)`
+  ${S1};
+  color: ${Color.PRIMARY};
+  font-weight: 600;
+  :hover {
+    color: ${Color.PRIMARY_LIGHT};
+    transition-duration: 0.5s;
+  }
+`;
 const TitleForm = styled.h1`
   ${H1};
   color: ${Color.SECONDARY_TEXT};
+  padding-bottom: 20px;
 `;
 
 const ResetPasswordLink = styled(NavLink)``;
 
-export { StyledSignInForm, TitleForm, SignInLabel, ResetPasswordLink, ForgotText, SignInButton };
+export {
+  StyledSignInForm,
+  TitleForm,
+  SignInLabel,
+  ResetPasswordLink,
+  ForgotText,
+  SignInButton,
+  SignInText,
+  SignInNavLink,
+};

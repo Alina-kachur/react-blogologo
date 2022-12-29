@@ -1,11 +1,13 @@
 import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
 import { StyledInput } from "components/Input/styles";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import {
   ForgotText,
   ResetPasswordLink,
   SignInButton,
   SignInLabel,
+  SignInNavLink,
+  SignInText,
   StyledSignInForm,
   TitleForm,
 } from "./styles";
@@ -16,18 +18,20 @@ interface IFormValues {
   password: string;
 }
 
+const onSubmit: SubmitHandler<IFormValues> = ({ email, password }: IFormValues) => {};
+
 export const SignInForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    // reset,
   } = useForm<IFormValues>();
   return (
     <>
       <BackHomeButton />
       <TitleForm>Sign In</TitleForm>
-      <StyledSignInForm>
+      <StyledSignInForm onSubmit={handleSubmit(onSubmit)}>
         <SignInLabel>Email</SignInLabel>
         <StyledInput
           type="email"
@@ -53,10 +57,14 @@ export const SignInForm = () => {
           })}
         />
         {errors.password && <p>{errors.password.message}</p>}
-        <ResetPasswordLink to={ROUTE.RESET_PASSWORD}>
+        <ResetPasswordLink to={"../" + ROUTE.RESET_PASSWORD}>
           <ForgotText>Forgot password?</ForgotText>
         </ResetPasswordLink>
         <SignInButton>Sign In</SignInButton>
+        <SignInText>
+          Don’t have an account?
+          <SignInNavLink to={"../" + ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
+        </SignInText>
       </StyledSignInForm>
     </>
   );
