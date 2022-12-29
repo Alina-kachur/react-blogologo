@@ -2,6 +2,7 @@ import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
 import { StyledInput } from "components/Search/styles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ROUTE } from "router";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
   SignUpButton,
   SignUpLabel,
@@ -11,36 +12,45 @@ import {
   TextErrors,
   TitleForm,
 } from "./styles";
+import { setUser } from "store/slices/userSlice/userSlice";
+import { useAppDispatch } from "store";
 
 interface IFormValues {
   email: string;
   password: string;
-  name: string;
 }
 
-const onSubmit: SubmitHandler<IFormValues> = ({ email, password, name }: IFormValues) => {};
 export const SignUpForm = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
+    reset,
   } = useForm<IFormValues>();
+
+  const onSubmit: SubmitHandler<IFormValues> = ({ email, password }: IFormValues) => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+          }),
+        );
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+    reset();
+  };
   return (
     <>
       <BackHomeButton />
       <TitleForm>Sign Up</TitleForm>
       <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>
-        <SignUpLabel>Name</SignUpLabel>
-        <StyledInput
-          type="text"
-          placeholder="Your name"
-          {...register("name", {
-            required: "* Name is required",
-            maxLength: { value: 25, message: "* max 15 characters" },
-          })}
-        />
-        {errors.name && <TextErrors>{errors.name.message}</TextErrors>}
         <SignUpLabel>Email</SignUpLabel>
         <StyledInput
           type="email"
