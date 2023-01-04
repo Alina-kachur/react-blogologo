@@ -7,6 +7,7 @@ import { SwitchTheme } from "./SwitchTheme/SwitchTheme";
 import { UserAccount } from "./UserAccount/UserAccount";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
+import { ResetPassword } from "./ResetPassword/ResetPassword";
 
 export {
   Footer,
@@ -18,4 +19,5 @@ export {
   UserAccount,
   SignInForm,
   SignUpForm,
+  ResetPassword,
 };

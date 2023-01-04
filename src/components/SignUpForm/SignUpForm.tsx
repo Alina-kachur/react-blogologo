@@ -21,7 +21,7 @@ interface IFormValues {
 }
 
 export const SignUpForm = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -33,12 +33,12 @@ export const SignUpForm = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-          }),
-        );
+        // dispatch(
+        //   setUser({
+        //     email: user.email,
+        //     id: user.uid,
+        //   }),
+        // );
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -47,7 +47,7 @@ export const SignUpForm = () => {
     reset();
   };
   return (
-    <>
+    <div>
       <BackHomeButton />
       <TitleForm>Sign Up</TitleForm>
       <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>
@@ -82,6 +82,6 @@ export const SignUpForm = () => {
           <SignUpNavLink to={"../" + ROUTE.SIGN_IN}>Sign In</SignUpNavLink>
         </SignUpText>
       </StyledSignUpForm>
-    </>
+    </div>
   );
 };

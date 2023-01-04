@@ -58,13 +58,13 @@ export const SignInForm = () => {
           })}
         />
         {errors.password && <TextErrors>{errors.password.message}</TextErrors>}
-        <ResetPasswordLink to={"../" + ROUTE.RESET_PASSWORD}>
+        <ResetPasswordLink to={"/" + ROUTE.RESET_PASSWORD}>
           <ForgotText>Forgot password?</ForgotText>
         </ResetPasswordLink>
         <SignInButton>Sign In</SignInButton>
         <SignInText>
           Don’t have an account?
-          <SignInNavLink to={ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
+          <SignInNavLink to={"/" + ROUTE.SIGN_UP}>Sign Up</SignInNavLink>
         </SignInText>
       </StyledSignInForm>
     </>
