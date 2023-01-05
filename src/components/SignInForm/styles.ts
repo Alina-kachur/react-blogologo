@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { B2, Color, H1, S1 } from "ui";
+import { B2, Color, S1 } from "ui";
 
 const StyledSignInForm = styled.form`
   width: clamp(272px, 724px, 100%);
@@ -59,17 +59,11 @@ const TextErrors = styled.p`
   ${S1}
   color: ${Color.ERROR};
 `;
-const TitleForm = styled.h1`
-  ${H1};
-  color: ${Color.SECONDARY_TEXT};
-  padding-bottom: 20px;
-`;
 
 const ResetPasswordLink = styled(NavLink)``;
 
 export {
   StyledSignInForm,
-  TitleForm,
   SignInLabel,
   ResetPasswordLink,
   ForgotText,

@@ -10,8 +10,8 @@ import {
   SignUpText,
   StyledSignUpForm,
   TextErrors,
-  TitleForm,
 } from "./styles";
+import { Title } from "components/Title/Title";
 import { setUser } from "store/slices/userSlice/userSlice";
 import { useAppDispatch } from "store";
 
@@ -49,7 +49,7 @@ export const SignUpForm = () => {
   return (
     <div>
       <BackHomeButton />
-      <TitleForm>Sign Up</TitleForm>
+      <Title>Sign Up</Title>
       <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>
         <SignUpLabel>Email</SignUpLabel>
         <StyledInput

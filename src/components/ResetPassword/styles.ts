@@ -1,4 +1,4 @@
-import { SignInButton, SignInLabel, TitleForm } from "components/SignInForm/styles";
+import { SignInButton, SignInLabel } from "components/SignInForm/styles";
 import styled from "styled-components";
 import { Color, H2, H3 } from "ui";
 
@@ -11,7 +11,6 @@ const StyledResetPassword = styled.form`
   grid-template-rows: 1fr 1fr;
   margin: 0 auto;
 `;
-const ResetTitle = styled(TitleForm)``;
 const ResetPasswordLabel = styled(SignInLabel)``;
 const SubmitButton = styled(SignInButton)``;
 const SubTitle = styled.h3`
@@ -24,10 +23,5 @@ const SubTitle = styled.h3`
   font-size: 18px;
   line-height: 28px; */
 `;
-const Title = styled.h2`
-  ${H2};
-  color: ${Color.SECONDARY_TEXT};
-  text-align: center;
-`;
 
-export { StyledResetPassword, ResetTitle, ResetPasswordLabel, SubmitButton, Title, SubTitle };
+export { StyledResetPassword, ResetPasswordLabel, SubmitButton, SubTitle };

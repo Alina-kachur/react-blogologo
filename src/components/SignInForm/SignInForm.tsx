@@ -10,9 +10,9 @@ import {
   SignInText,
   StyledSignInForm,
   TextErrors,
-  TitleForm,
 } from "./styles";
 import { ROUTE } from "router";
+import { Title } from "components/Title/Title";
 
 interface IFormValues {
   email: string;
@@ -31,7 +31,7 @@ export const SignInForm = () => {
   return (
     <>
       <BackHomeButton />
-      <TitleForm>Sign In</TitleForm>
+      <Title>Sign In</Title>
       <StyledSignInForm onSubmit={handleSubmit(onSubmit)}>
         <SignInLabel>Email</SignInLabel>
         <StyledInput

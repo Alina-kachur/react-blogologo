@@ -2,15 +2,8 @@ import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
 import { StyledInput } from "components/Search/styles";
 import { TextErrors } from "components/SignInForm/styles";
 import { SubmitHandler, useForm } from "react-hook-form";
-import {
-  ResetPasswordLabel,
-  ResetTitle,
-  StyledResetPassword,
-  SubmitButton,
-  SubTitle,
-  Title,
-} from "./styles";
-
+import { ResetPasswordLabel, StyledResetPassword, SubmitButton, SubTitle } from "./styles";
+import { Title } from "components/Title/Title";
 interface IFormValues {
   email: string;
 }
@@ -27,9 +20,8 @@ export const ResetPassword = () => {
   return (
     <>
       <BackHomeButton />
-      <ResetTitle> Reset Password</ResetTitle>
+      <Title>Reset Password</Title>
       <StyledResetPassword onSubmit={handleSubmit(onSubmit)}>
-        <Title>Forgot Password</Title>
         <SubTitle>
           Please enter your email address and we'll send you instructions on how to reset your
           password

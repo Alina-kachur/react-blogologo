@@ -1,6 +1,6 @@
 import { SignInButton, SignInLabel, SignInNavLink, SignInText } from "components/SignInForm/styles";
 import styled from "styled-components";
-import { Color, H1, S1 } from "ui";
+import { Color, S1 } from "ui";
 
 const StyledSignUpForm = styled.form`
   width: clamp(272px, 724px, 100%);
@@ -20,22 +20,4 @@ const TextErrors = styled.p`
   color: ${Color.ERROR};
   ${S1}
 `;
-const TitleForm = styled.h1`
-  /* ${H1}; */
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 80px;
-  color: ${Color.SECONDARY_TEXT};
-  padding-bottom: 20px;
-`;
-export {
-  StyledSignUpForm,
-  TitleForm,
-  SignUpLabel,
-  SignUpButton,
-  SignUpText,
-  SignUpNavLink,
-  TextErrors,
-};
+export { StyledSignUpForm, SignUpLabel, SignUpButton, SignUpText, SignUpNavLink, TextErrors };
