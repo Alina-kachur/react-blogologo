@@ -8,6 +8,8 @@ import { UserAccount } from "./UserAccount/UserAccount";
 import { SignInForm } from "./SignInForm/SignInForm";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
+import { Title } from "./Title/Title";
+import { Chapters } from "./Chapters/Chapters";
 
 export {
   Footer,
@@ -20,4 +22,6 @@ export {
   SignInForm,
   SignUpForm,
   ResetPassword,
+  Title,
+  Chapters,
 };
