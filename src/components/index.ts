@@ -10,6 +10,8 @@ import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { Title } from "./Title/Title";
 import { Chapters } from "./Chapters/Chapters";
+import { ArticlesList } from "./ArticlesList/ArticlesList";
+import { ArticlesListItem } from "./ArticlesListItem/ArticlesListItem";
 
 export {
   Footer,
@@ -24,4 +26,6 @@ export {
   ResetPassword,
   Title,
   Chapters,
+  ArticlesList,
+  ArticlesListItem,
 };
