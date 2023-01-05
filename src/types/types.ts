@@ -1,13 +1,13 @@
 interface IArticleAPI {
   id: string;
   title: string;
-  url: string;
+  url?: string;
   imageUrl: string;
-  newsSite: string;
-  summary: string;
+  newsSite?: string;
+  summary?: string;
   publishedAt: string;
-  launches: ILaunch[];
-  events: IEvent[];
+  launches?: ILaunch[];
+  events?: IEvent[];
 }
 interface ILaunch {
   id: string;
@@ -16,6 +16,12 @@ interface ILaunch {
 interface IEvent {
   id: string;
   provider: string;
+}
+interface IArticle {
+  id: string;
+  title: string;
+  imageUrl: string;
+  publishedAt: string;
 }
 interface INewAPI {
   id: string;
@@ -28,4 +34,4 @@ interface INewAPI {
   launches: ILaunch[];
   events: IEvent[];
 }
-export type { IArticleAPI, INewAPI };
+export type { IArticleAPI, INewAPI, IArticle };
