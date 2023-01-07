@@ -7,7 +7,7 @@ export const HomePage = () => {
     <WrapperHomePage>
       <Title>Blog</Title>
       <Chapters />
-      {/* <ArticlesList /> */}
+      <ArticlesList />
     </WrapperHomePage>
   );
 };
