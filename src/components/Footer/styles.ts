@@ -9,23 +9,23 @@ const StyledFooter = styled.footer`
   align-items: center;
   border-top: 1.5px solid ${Color.LIGHT};
   background-color: ${Color.LIGHT_BACKGROUND};
-
-  /* ${Media.LG} {
+  ${Media.XXL} {
     width: 80%;
   }
-
-  ${Media.MD} {
-    width: 90%;
+  ${Media.LG} {
+    width: 80%;
   }
-
+  ${Media.MD} {
+    width: 85%;
+  }
   ${Media.SM} {
-    width: 90%;
-  } */
-  /* ${Media.XS} {
+    width: 85%;
+  }
+  ${Media.XS} {
     width: 90%;
     flex-direction: column;
     gap: 15px;
-  } */
+  } ;
 `;
 const CopyRight = styled.p`
   ${S1};

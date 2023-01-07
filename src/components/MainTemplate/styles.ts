@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Media } from "ui";
 
 const StyledMainTemplate = styled.div`
   display: flex;
@@ -10,7 +11,25 @@ const StyledMainTemplate = styled.div`
 const WrapperOutlet = styled.div`
   flex-grow: 1;
   display: grid;
-  width: 68%;
-  /* margin: 0 auto; */
+  place-self: center;
+  width: 63%;
+  ${Media.XXL} {
+    width: 80%;
+  }
+  ${Media.XL} {
+    width: 90%;
+  }
+  ${Media.LG} {
+    width: 75%;
+  }
+  ${Media.MD} {
+    width: 90%;
+  }
+  ${Media.SM} {
+    width: 75%;
+  }
+  ${Media.XS} {
+    width: 85%;
+  }
 `;
 export { StyledMainTemplate, WrapperOutlet };

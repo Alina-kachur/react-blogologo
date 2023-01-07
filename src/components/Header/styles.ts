@@ -1,7 +1,7 @@
+import { LogoIcon } from "assets/icons";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Media } from "ui";
-import { Color } from "../../ui/colors";
+import { Color, Media } from "ui";
 
 const StyledHeader = styled.header`
   background-color: ${Color.WHITE_HEADER};
@@ -10,6 +10,7 @@ const StyledHeader = styled.header`
   align-items: center;
   width: 100%;
   padding: 20px 32px;
+
   ${Media.XL} {
     grid-template-columns: 1fr 6fr 1fr;
   }
@@ -19,9 +20,20 @@ const StyledHeader = styled.header`
   ${Media.MD} {
     grid-template-columns: 1fr 2fr 1fr;
   }
+  ${Media.XS} {
+    padding: 20px 15px;
+  }
+`;
+const StyledLogoIcon = styled(LogoIcon)`
+  ${Media.MD} {
+    height: 56px;
+  }
+  ${Media.XS} {
+    height: 44px;
+  }
 `;
 
 const StyledLink = styled(NavLink)`
   justify-self: flex-start;
 `;
-export { StyledHeader, StyledLink };
+export { StyledHeader, StyledLink, StyledLogoIcon };

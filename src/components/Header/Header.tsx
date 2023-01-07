@@ -1,4 +1,4 @@
-import { StyledHeader, StyledLink } from "./styles";
+import { StyledHeader, StyledLink, StyledLogoIcon } from "./styles";
 import { ROUTE } from "router";
 import { useInput } from "hooks";
 import { LogoIcon } from "assets/icons";
@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <StyledLink to={ROUTE.HOME}>
-        <LogoIcon />
+        <StyledLogoIcon />
       </StyledLink>
       <Search type="text" placeholder="Search..." {...search} />
       <UserAccount />

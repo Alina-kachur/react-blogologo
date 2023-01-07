@@ -12,7 +12,7 @@ const StyledSignInForm = styled.form`
   margin: 0 auto;
 `;
 const ForgotText = styled.p`
-  color: ${Color.SECONDARY_TEXT};
+  color: ${Color.PRIMARY};
   ${S1};
   padding-top: 7px;
   :hover {
@@ -24,7 +24,7 @@ const ForgotText = styled.p`
 const SignInLabel = styled.label`
   ${B2};
   color: ${Color.SECONDARY_TEXT};
-  margin-top: 20px;
+  padding: 20px 0 10px 0;
 `;
 const SignInButton = styled.button`
   ${B2};
@@ -50,6 +50,7 @@ const SignInNavLink = styled(NavLink)`
   ${S1};
   color: ${Color.PRIMARY};
   font-weight: 600;
+  padding-left: 7px;
   :hover {
     color: ${Color.PRIMARY_LIGHT};
     transition-duration: 0.5s;
@@ -59,7 +60,6 @@ const TextErrors = styled.p`
   ${S1}
   color: ${Color.ERROR};
 `;
-
 const ResetPasswordLink = styled(NavLink)``;
 
 export {

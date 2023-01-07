@@ -4,10 +4,8 @@ import { B1, Color } from "ui";
 const StyledInput = styled.input`
   width: 100%;
   padding: 10px 0 10px 20px;
-  margin-top: 10px;
   border-radius: 5px;
   border: 1px solid ${Color.EXTRA_LIGHT};
-  background-color: ${Color.LIGHT_CARDS};
   ${B1}
   &::placeholder {
     ${B1}
