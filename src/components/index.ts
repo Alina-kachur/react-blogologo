@@ -12,6 +12,8 @@ import { Title } from "./Title/Title";
 import { Chapters } from "./Chapters/Chapters";
 import { ArticlesList } from "./ArticlesList/ArticlesList";
 import { ArticlesListItem } from "./ArticlesListItem/ArticlesListItem";
+import { NewsList } from "./NewsList/NewsList";
+import { NewsListItem } from "./NewsListItem/NewsListItem";
 
 export {
   Footer,
@@ -28,4 +30,6 @@ export {
   Chapters,
   ArticlesList,
   ArticlesListItem,
+  NewsList,
+  NewsListItem,
 };
