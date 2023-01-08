@@ -14,6 +14,7 @@ import { ArticlesList } from "./ArticlesList/ArticlesList";
 import { ArticlesListItem } from "./ArticlesListItem/ArticlesListItem";
 import { NewsList } from "./NewsList/NewsList";
 import { NewsListItem } from "./NewsListItem/NewsListItem";
+import { ArticleInfo } from "./ArticleInfo/ArticleInfo";
 
 export {
   Footer,
@@ -32,4 +33,5 @@ export {
   ArticlesListItem,
   NewsList,
   NewsListItem,
+  ArticleInfo,
 };
