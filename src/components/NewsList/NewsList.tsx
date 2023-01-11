@@ -4,6 +4,7 @@ import { getAllNews } from "store/selectors/newsSelector";
 import { fetchNews } from "store/slices/newsSlice/newsSlice";
 import { StyledNewsList } from "./styles";
 import { useEffect } from "react";
+import { Spinner } from "components/Spinner/Spinner";
 
 export const NewsList = () => {
   const dispatch = useAppDispatch();
@@ -15,6 +16,7 @@ export const NewsList = () => {
 
   return (
     <StyledNewsList>
+      {isLoading && <Spinner />}
       {news.map((news) => (
         <NewsListItem news={news} key={news.id} />
       ))}

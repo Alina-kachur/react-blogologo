@@ -21,7 +21,7 @@ interface IFormValues {
 }
 
 export const SignUpForm = () => {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -32,14 +32,14 @@ export const SignUpForm = () => {
   const onSubmit: SubmitHandler<IFormValues> = ({ email, password }: IFormValues) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        // dispatch(
-        //   setUser({
-        //     email: user.email,
-        //     id: user.uid,
-        //   }),
-        // );
-      })
+      // .then(({ user }) => {
+      //   dispatch(
+      //     setUser({
+      //       email: user.email,
+      //       id: user.uid,
+      //     }),
+      //   );
+      // })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

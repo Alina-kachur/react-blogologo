@@ -4,6 +4,7 @@ import { getAllArticles } from "store/selectors/articleSelector";
 import { StyledArticlesList } from "./styles";
 import { useEffect } from "react";
 import { fetchArticles } from "store/slices/articlesSlice/articlesSlice";
+import { Spinner } from "components/Spinner/Spinner";
 
 export const ArticlesList = () => {
   const dispatch = useAppDispatch();
@@ -15,6 +16,7 @@ export const ArticlesList = () => {
 
   return (
     <StyledArticlesList>
+      {isLoading && <Spinner />}
       {articles.map((article) => (
         <ArticlesListItem article={article} key={article.id} />
       ))}
