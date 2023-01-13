@@ -9,8 +9,8 @@ export enum FirebaseErrorMessage {
   NOT_FOUND = "User not found",
   UNKNOWN_ERROR = "Error! Please reload the page",
 }
-export const getFirebaseErrorMessage = (error: FirebaseErrorCode) => {
-  switch (error) {
+export const getFirebaseErrorMessage = (code: FirebaseErrorCode) => {
+  switch (code) {
     case "auth/email-already-in-use":
       return FirebaseErrorMessage.EMAIL_ALREADY_IN_USE;
     case "auth/wrong-password":
