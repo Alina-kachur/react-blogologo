@@ -10,4 +10,10 @@ const Image = styled.img`
 
 const Info = styled.p``;
 
-export { StyledArticleInfo, Title, Image, Info };
+const Navigate = styled.div`
+  display: flex;
+`;
+const Home = styled.button``;
+const Post = styled.p``;
+
+export { StyledArticleInfo, Title, Image, Info, Navigate, Home, Post };

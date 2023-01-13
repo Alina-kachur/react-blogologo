@@ -4,17 +4,17 @@ import { IArticleAPI } from "types";
 import { Image, Info, PublishedDate, StyledArticlesListItem } from "./styles";
 
 interface IProps {
-  article: IArticleAPI;
+  articles: IArticleAPI;
 }
 
-export const ArticlesListItem = ({ article }: IProps) => {
-  const date = new Date(article.publishedAt).toLocaleString().slice(0, -3);
+export const ArticlesListItem = ({ articles }: IProps) => {
+  const date = new Date(articles.publishedAt).toLocaleString().slice(0, -3);
   return (
     <StyledArticlesListItem>
-      <Link to={generatePath(ROUTE.ARTICLES_INFO, { id: `${article.id}` })}>
-        <Image src={article.imageUrl} />
+      <Link to={generatePath(ROUTE.ARTICLES_INFO, { id: `${articles.id}` })}>
+        <Image src={articles.imageUrl} />
         <PublishedDate>{date}</PublishedDate>
-        <Info>{article.title}</Info>
+        <Info>{articles.title}</Info>
       </Link>
     </StyledArticlesListItem>
   );

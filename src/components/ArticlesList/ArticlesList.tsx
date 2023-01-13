@@ -18,7 +18,7 @@ export const ArticlesList = () => {
     <StyledArticlesList>
       {isLoading && <Spinner />}
       {articles.map((article) => (
-        <ArticlesListItem article={article} key={article.id} />
+        <ArticlesListItem articles={article} key={article.id} />
       ))}
     </StyledArticlesList>
   );

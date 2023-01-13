@@ -1,16 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import { IArticleAPI } from "types";
-import { Image, Info, StyledArticleInfo, Title } from "./styles";
+import { Home, Image, Info, Navigate, Post, StyledArticleInfo, Title } from "./styles";
 
 interface IProps {
-  article: IArticleAPI;
+  articles: IArticleAPI;
 }
 
-export const ArticleInfo = ({ article }: IProps) => {
+export const ArticleInfo = ({ articles }: IProps) => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
+  const { title, imageUrl, url, summary, id } = articles;
   return (
-    <StyledArticleInfo>
-      <Title>{article.title}</Title>
-      <Image src={article.imageUrl} />
-      <Info>{article.summary}</Info>
-    </StyledArticleInfo>
+    <>
+      <Navigate>
+        <Home onClick={handleBack}>Home /</Home>
+        <Post>{id} Post</Post>
+      </Navigate>
+      <StyledArticleInfo>
+        <Title>{title}</Title>
+        <Image src={imageUrl} />
+        <Info>{summary}</Info>
+      </StyledArticleInfo>
+    </>
   );
 };
