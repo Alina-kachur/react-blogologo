@@ -1,29 +1,77 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { INewAPI } from "types";
+import { FirebaseErrorCode, FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
-interface IUser {
+interface IUserState {
+  name: null | string;
   email: null | string;
-  id: null | string;
+  password: string;
+  id: string | null;
+  isAuth: boolean;
+  favorites: INewAPI[];
+  error: null | string;
 }
-
-const initialState: IUser = {
-  email: null,
-  id: null,
+interface ISignUp {
+  email: string;
+  password: string;
+  userName: string;
+}
+const initialState: IUserState = {
+  name: "",
+  email: "",
+  password: "",
+  id: "",
+  favorites: [],
+  isAuth: false,
+  error: null,
 };
 
-export const userSlice = createSlice({
+// export const fetchSignUp = createAsyncThunk<
+//   IUserState,
+//   ISignUp,
+//   { rejectValue: FirebaseErrorMessage }
+// >("user/fetchSignUp", async ({ email, userName, password }, { rejectWithValue }) => {
+//   try {
+//     const auth = getAuth();
+//     const userData = createUserWithEmailAndPassword(auth, email, password);
+//     const userEmail = (await userData).user.email;
+//     const name = userName;
+
+//     return { userEmail, name };
+//   } catch (error) {
+//     const firebaseError = error as {code: FirebaseErrorCode} };
+//     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+//   }
+// });
+
+const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setUser(state, { payload }) {
-      state.email = payload.email;
-      state.id = payload.id;
+    setUser: (state, { payload }: PayloadAction<string>) => {
+      state.isAuth = true;
+      state.email = payload;
     },
-    removeUser(state) {
-      state.email = null;
-      state.id = null;
+    setUserName: (state, action) => {
+      state.name = action.payload;
+    },
+    // addFavorites: (state, { payload }: PayloadAction<INewAPI[]>) => {
+    //   state.favorites = [
+    //     { ...payload},
+    //     ...state.favorites.filter((item) => item.id !== payload.id),
+    //   ];
+    // },
+    removeFavorites: (state, { payload }: PayloadAction<INewAPI>) => {
+      state.favorites = state.favorites.filter((item) => item.id !== payload.id);
     },
   },
 });
 
-export const { setUser, removeUser } = userSlice.actions;
+export const {
+  setUser,
+  setUserName,
+  // addFavorites,
+  // removeFavorites,
+} = userSlice.actions;
 export default userSlice.reducer;

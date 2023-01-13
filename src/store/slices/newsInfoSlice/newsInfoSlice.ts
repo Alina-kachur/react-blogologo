@@ -23,7 +23,7 @@ const initialState: INewsInfoState = {
   isLoading: false,
   error: null,
 };
-const newsInfoSlice = createSlice({
+export const newsInfoSlice = createSlice({
   name: "newsInfo",
   initialState,
   reducers: {},

@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { spaceNewsAPI } from "services";
-import { IArticleAPI, INewAPI } from "types/types";
+import { IArticleAPI } from "types";
 
-interface IArticleInfoState {
+interface IArticlesInfoState {
   articles: IArticleAPI;
   isLoading: boolean;
   error: null | string;
@@ -12,18 +12,20 @@ export const fetchArticlesInfo = createAsyncThunk<IArticleAPI, string, { rejectV
   "articles/fetchArticlesInfo",
   async (params, { rejectWithValue }) => {
     try {
-      return await spaceNewsAPI.getArticlesByID(params);
+      return await spaceNewsAPI.getArticlesById(params);
     } catch (error) {
       return rejectWithValue("Error");
     }
   },
 );
-const initialState: IArticleInfoState = {
+
+const initialState: IArticlesInfoState = {
   articles: {} as IArticleAPI,
   isLoading: false,
   error: null,
 };
-const articlesInfoSlice = createSlice({
+
+export const articlesInfoSlice = createSlice({
   name: "articlesInfo",
   initialState,
   reducers: {},
@@ -44,4 +46,5 @@ const articlesInfoSlice = createSlice({
     });
   },
 });
+
 export default articlesInfoSlice.reducer;
