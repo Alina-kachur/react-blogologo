@@ -2,7 +2,7 @@ import { CloseIcon, SearchIcon } from "assets/icons";
 import styled from "styled-components";
 import { B1, Color } from "ui";
 
-const StyledSearch = styled.div`
+const StyledSearch = styled.form`
   display: grid;
   grid-template-columns: 98% 2%;
   align-items: center;
