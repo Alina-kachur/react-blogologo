@@ -9,13 +9,15 @@ import { SignInForm } from "./SignInForm/SignInForm";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { Title } from "./Title/Title";
-import { Chapters } from "./Chapters/Chapters";
+import { Tabs } from "./Tabs/Tabs";
 import { ArticlesList } from "./ArticlesList/ArticlesList";
 import { ArticlesListItem } from "./ArticlesListItem/ArticlesListItem";
 import { NewsList } from "./NewsList/NewsList";
 import { NewsListItem } from "./NewsListItem/NewsListItem";
 import { ArticleInfo } from "./ArticleInfo/ArticleInfo";
 import { Spinner } from "./Spinner/Spinner";
+import { CustomSelect } from "./CustomSelect/CustomSelect";
+import { SortByDate } from "./SortByDate/SortByDate";
 
 export {
   Footer,
@@ -29,11 +31,13 @@ export {
   SignUpForm,
   ResetPassword,
   Title,
-  Chapters,
+  Tabs,
   ArticlesList,
   ArticlesListItem,
   NewsList,
   NewsListItem,
   ArticleInfo,
   Spinner,
+  CustomSelect,
+  SortByDate,
 };

@@ -13,7 +13,6 @@ const ButtonNews = styled.button<setTab>`
   margin-right: 20px;
   border: none;
   border-radius: 16px;
-  border-bottom: 2px solid ${Color.SECONDARY_TEXT};
   background: ${({ active }) => (active === false ? Color.LIGHT_CARDS : Color.PRIMARY)};
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   :hover {
@@ -21,19 +20,8 @@ const ButtonNews = styled.button<setTab>`
     transition-duration: 0.5s;
   }
 `;
-const ButtonArticles = styled.button<setTab>`
-  ${B2}
-  padding: 20px 40px;
+const ButtonArticles = styled(ButtonNews)<setTab>`
   color: ${({ active }) => (active === true ? Color.SECONDARY_TEXT : Color.WHITE)};
-  margin-right: 20px;
-  border: none;
-  border-radius: 16px;
-  border-bottom: 2px solid ${Color.SECONDARY_TEXT};
   background: ${({ active }) => (active === true ? Color.LIGHT_CARDS : Color.PRIMARY)};
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  :hover {
-    box-shadow: 0px 7px 12px 0px rgba(0, 0, 0, 0.7);
-    transition-duration: 0.5s;
-  }
 `;
 export { StyledTabs, ButtonArticles, ButtonNews };
