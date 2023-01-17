@@ -16,8 +16,9 @@ import { NewsList } from "./NewsList/NewsList";
 import { NewsListItem } from "./NewsListItem/NewsListItem";
 import { ArticleInfo } from "./ArticleInfo/ArticleInfo";
 import { Spinner } from "./Spinner/Spinner";
-import { CustomSelect } from "./CustomSelect/CustomSelect";
+import { CustomSelectTitle } from "./CustomSelectTitle/CustomSelectTitle";
 import { SortByDate } from "./SortByDate/SortByDate";
+import { CustomSelectDate } from "./CustomSelectDate/CustomSelectDate";
 
 export {
   Footer,
@@ -38,6 +39,7 @@ export {
   NewsListItem,
   ArticleInfo,
   Spinner,
-  CustomSelect,
+  CustomSelectTitle,
   SortByDate,
+  CustomSelectDate,
 };

@@ -1,21 +1,24 @@
 import Select, { OnChangeValue } from "react-select";
+import { Period } from "types/types";
 import { styledSelect } from "./styles";
 
-interface IProps {
-  value: string;
-  onSelect: (value: string) => void;
-}
 export interface IOption {
   value: string;
   label: string;
 }
-export const CustomSelect = ({ value, onSelect }: IProps) => {
+interface IProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+export const CustomSelectDate = ({ value, onChange }: IProps) => {
   const options: IOption[] = [
-    { value: "az", label: "Title (A-Z)" },
-    { value: "za", label: "Title (Z-A)" },
+    { value: Period.DAY, label: "Day" },
+    { value: Period.WEEK, label: "Week" },
+    { value: Period.MONTH, label: "Month" },
+    { value: Period.YEAR, label: "Year" },
   ];
   const handleSort = (newValue: OnChangeValue<IOption, boolean>) => {
-    onSelect((newValue as IOption).value);
+    onChange((newValue as IOption).value);
   };
   const getValue = (value: string): IOption | undefined => {
     return value ? options.find((option) => option.value === value) : undefined;

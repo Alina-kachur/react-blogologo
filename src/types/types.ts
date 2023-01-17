@@ -43,4 +43,14 @@ interface INew {
 interface ISearch extends INewAPI {
   titleWord: string;
 }
+export enum SortTitle {
+  AZ = "az",
+  ZA = "za",
+}
+export enum Period {
+  DAY = "Day",
+  WEEK = "Week",
+  MONTH = "Month",
+  YEAR = "Year",
+}
 export type { IArticleAPI, INewAPI, IArticle, INew, ISearch };

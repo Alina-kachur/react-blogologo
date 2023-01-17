@@ -1,6 +1,6 @@
 import { StylesConfig } from "react-select";
 import { Color } from "ui";
-import { IOption } from "./CustomSelect";
+import { IOption } from "./CustomSelectDate";
 
 export const styledSelect: StylesConfig<IOption, false> = {
   option: (provided, state) => ({
@@ -9,7 +9,7 @@ export const styledSelect: StylesConfig<IOption, false> = {
     color: `${Color.SECONDARY_TEXT}`,
     padding: 20,
     fontFamily: "Inter",
-    width: "200px",
+    width: "256px",
     cursor: "pointer",
     "&:hover": {
       color: `${Color.PRIMARY}`,
@@ -18,7 +18,7 @@ export const styledSelect: StylesConfig<IOption, false> = {
   }),
   control: (styles) => ({
     ...styles,
-    width: "200px",
+    width: "256px",
     borderRadius: 10,
     border: "none",
     padding: 10,
