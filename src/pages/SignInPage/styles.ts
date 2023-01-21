@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const WrapperPage = styled.div`
+const WrapperSignIn = styled.div`
   padding: 40px 0;
 `;
 
-export { WrapperPage };
+export { WrapperSignIn };

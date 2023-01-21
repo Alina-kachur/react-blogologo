@@ -1,9 +1,10 @@
 import { SignInForm } from "components";
+import { WrapperSignIn } from "./styles";
 
 export const SignInPage = () => {
   return (
-    <div>
+    <WrapperSignIn>
       <SignInForm />
-    </div>
+    </WrapperSignIn>
   );
 };
