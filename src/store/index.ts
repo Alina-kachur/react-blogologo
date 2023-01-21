@@ -12,7 +12,7 @@ import { fetchNewsInfo } from "./slices/newsInfoSlice/newsInfoSlice";
 import { fetchArticlesInfo } from "./slices/articlesInfoSlice/articlesInfoSlice";
 import { fetchNews } from "./slices/newsSlice/newsSlice";
 
-// import{}
+import { getUserName } from "./slices/userSlice/userSlice";
 
 export {
   store,
@@ -24,10 +24,9 @@ export {
   getAllNews,
   getNewsByID,
   setTheme,
-  setUser,
   fetchArticles,
   fetchNewsInfo,
   fetchNews,
-  // userSlice,
+  getUserName,
   fetchArticlesInfo,
 };
