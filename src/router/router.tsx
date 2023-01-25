@@ -4,7 +4,7 @@ import {
   HomePage,
   NotFoundPage,
   ResetPasswordPage,
-  // SearchPage,
+  SearchPage,
   SignInPage,
   SignUpPage,
 } from "pages";
@@ -21,7 +21,7 @@ export const router = createBrowserRouter(
         <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
         <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
         <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
-        {/* <Route path={ROUTE.SEARCH} element={<SearchPage />} /> */}
+        <Route path={ROUTE.SEARCH} element={<SearchPage />} />
         <Route path={ROUTE.BLOG_INFO} element={<BlogInfoPage />} />
       </Route>
       ,

@@ -38,11 +38,11 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: 0 }));
+    dispatch(fetchArticles({ page: 1, titleWord: "", value: "" }));
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchNews({ page: 0 }));
+    dispatch(fetchNews({ page: 1, titleWord: "", value: "" }));
   }, [dispatch]);
 
   return (

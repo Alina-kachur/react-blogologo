@@ -10,12 +10,12 @@ class SpaceNewsAPI {
   private readonly API = axios.create({
     baseURL: this.BASE_URL,
   });
-  public async getBlog(page: number, endpoint: string) {
+  public async getBlog(page: number, titleWord: string, value: string, endpoint: string) {
     const params = {
       _limit: 12,
       _start: page,
-      // _title_contains: query,
-      // _sort: titleWord,
+      _title_contains: titleWord,
+      _sort: value,
     };
     const { data } = await this.API.get<IBlogAPI[]>("/" + endpoint, { params });
     return data;
@@ -28,13 +28,6 @@ class SpaceNewsAPI {
 
   public async getNewsById(id: string) {
     const { data } = await this.API.get<IBlogAPI>(`${this.ENDPOINTS.blogs}/${id}`);
-    return data;
-  }
-  public async getNewsArticlesBySearch(titleWord: string) {
-    const params = {
-      _titleWord: titleWord,
-    };
-    const { data } = await this.API.get<IBlogAPI[]>(this.ENDPOINTS.articles, { params });
     return data;
   }
 }

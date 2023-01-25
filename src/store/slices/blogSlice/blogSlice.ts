@@ -14,7 +14,7 @@ interface IBlogState {
 }
 
 interface ISearch {
-  title: string | null;
+  titleWord: string | null;
 }
 
 const initialState: IBlogState = {
@@ -22,18 +22,19 @@ const initialState: IBlogState = {
   news: [],
   isLoading: false,
   error: null,
-  search: { title: null },
+  search: { titleWord: null },
 };
 
 export const fetchArticles = createAsyncThunk<
   IBlogAPI[],
-  { page: number },
+  { page: number; titleWord: string; value: string },
   { rejectValue: string }
 >("articles/fetchArticles", async (params, { rejectWithValue }) => {
   try {
     return await spaceNewsAPI.getBlog(
       params.page,
-
+      params.titleWord,
+      params.value,
       TabValue.ARTICLES_VALUE,
     );
   } catch (error) {
@@ -42,28 +43,30 @@ export const fetchArticles = createAsyncThunk<
   }
 });
 
-export const fetchNews = createAsyncThunk<IBlogAPI[], { page: number }, { rejectValue: string }>(
-  "news/fetchNews",
-  async (params, { rejectWithValue }) => {
-    try {
-      return await spaceNewsAPI.getBlog(
-        params.page,
-
-        TabValue.NEWS_VALUE,
-      );
-    } catch (error) {
-      const errorMessage = error as AxiosError;
-      return rejectWithValue(errorMessage.message);
-    }
-  },
-);
+export const fetchNews = createAsyncThunk<
+  IBlogAPI[],
+  { page: number; titleWord: string; value: string },
+  { rejectValue: string }
+>("news/fetchNews", async (params, { rejectWithValue }) => {
+  try {
+    return await spaceNewsAPI.getBlog(
+      params.page,
+      params.titleWord,
+      params.value,
+      TabValue.NEWS_VALUE,
+    );
+  } catch (error) {
+    const errorMessage = error as AxiosError;
+    return rejectWithValue(errorMessage.message);
+  }
+});
 
 export const blogSlice = createSlice({
   name: "blog",
   initialState,
   reducers: {
     setSearch: (state, { payload }) => {
-      state.search.title = payload.title;
+      state.search.titleWord = payload.titleWord;
     },
   },
   extraReducers(builder) {

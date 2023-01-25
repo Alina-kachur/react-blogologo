@@ -5,7 +5,7 @@ import { SignInPage } from "./SignInPage/SignInPage";
 import { SignUpPage } from "./SignUpPage/SignUpPage";
 import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 import { BlogInfoPage } from "./BlogInfoPage/BlogInfoPage";
-// import { SearchPage } from "./SearchPage/SearchPage";
+import { SearchPage } from "./SearchPage/SearchPage";
 
 export {
   NotFoundPage,
@@ -15,5 +15,5 @@ export {
   SignUpPage,
   ResetPasswordPage,
   BlogInfoPage,
-  // SearchPage,
+  SearchPage,
 };

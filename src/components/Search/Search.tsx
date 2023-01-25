@@ -5,17 +5,20 @@ import { useAppDispatch, useAppSelector } from "store";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
-import { getNewsArticlesBySearch } from "store/selectors/searchSelector";
+
+import { useDispatch } from "react-redux";
+import { setSearch } from "store/slices/blogSlice/blogSlice";
 
 interface ISearch {
   type: HTMLInputTypeAttribute;
   placeholder: string;
-  value?: string;
+  value: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  searchTerm?: string | null;
 }
 
 export const Search = (props: ISearch) => {
+  const dispatch = useDispatch();
+
   const [isActiveSearch, toggleIsActiveSearch] = useToggle();
   const handleSearchActive = () => {
     toggleIsActiveSearch();
@@ -27,17 +30,12 @@ export const Search = (props: ISearch) => {
     navigate(ROUTE.SEARCH);
     reset();
   };
-  // const { articles, error, isLoading } = useAppSelector(getNewsArticlesBySearch);
-  // const [searchTerm, setSearchTerm] = useState("");
-  // const displayedItems = articles.filter((article) => {
-  //   return article.title.toLowerCase().includes(searchTerm.toLowerCase());
-  // });
 
   return (
     <>
       {isActiveSearch ? (
         <StyledSearch onSubmit={handleSearch}>
-          {/* <StyledInput placeholder="Search..." type="search" value={searchTerm} {...register} /> */}
+          <StyledInput placeholder="Search..." type="search" {...register} />
           <StyledCloseIcon onClick={handleSearchActive} />
         </StyledSearch>
       ) : (
