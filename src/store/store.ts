@@ -1,20 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import articleReducer from "./slices/articlesSlice/articlesSlice";
 import themeReducer from "./slices/themeSlice/themeSlice";
 import userReducer from "./slices/userSlice/userSlice";
-import newsReducer from "./slices/newsSlice/newsSlice";
-import newsInfoReducer from "./slices/newsInfoSlice/newsInfoSlice";
-
-import articlesInfoReducer from "./slices/articlesInfoSlice/articlesInfoSlice";
+import blogReducer from "./slices/blogSlice/blogSlice";
+import blogInfoReducer from "./slices/blogInfoSlice/blogInfoSlice";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     user: userReducer,
-    articles: articleReducer,
-    news: newsReducer,
-    newsInfo: newsInfoReducer,
-    articlesInfo: articlesInfoReducer,
+    blog: blogReducer,
+    blogInfo: blogInfoReducer,
   },
 });
 

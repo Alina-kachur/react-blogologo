@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { B2, Color, Media, S1 } from "ui";
 
-const StyledArticlesListItem = styled.li`
+const StyledBlogListItem = styled.li`
   width: 353px;
   height: 390px;
   background-color: ${Color.WHITE_HEADER};
@@ -41,4 +41,4 @@ const Info = styled.p`
   padding: 10px 20px;
 `;
 
-export { StyledArticlesListItem, Image, PublishedDate, Info };
+export { StyledBlogListItem, Image, PublishedDate, Info };

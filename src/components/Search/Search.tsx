@@ -2,7 +2,6 @@ import { StyledCloseIcon, StyledInput, StyledSearch, StyledSearchIcon } from "./
 import { HTMLInputTypeAttribute, ChangeEvent, useEffect, FormEvent, useState } from "react";
 import { useToggle } from "hooks";
 import { useAppDispatch, useAppSelector } from "store";
-import { fetchArticlesBySearch } from "store/slices/articlesSlice/articlesSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -28,17 +27,17 @@ export const Search = (props: ISearch) => {
     navigate(ROUTE.SEARCH);
     reset();
   };
-  const { articles, error, isLoading } = useAppSelector(getNewsArticlesBySearch);
-  const [searchTerm, setSearchTerm] = useState("");
-  const displayedItems = articles.filter((article) => {
-    return article.title.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  // const { articles, error, isLoading } = useAppSelector(getNewsArticlesBySearch);
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const displayedItems = articles.filter((article) => {
+  //   return article.title.toLowerCase().includes(searchTerm.toLowerCase());
+  // });
 
   return (
     <>
       {isActiveSearch ? (
         <StyledSearch onSubmit={handleSearch}>
-          <StyledInput placeholder="Search..." type="search" value={searchTerm} {...register} />
+          {/* <StyledInput placeholder="Search..." type="search" value={searchTerm} {...register} /> */}
           <StyledCloseIcon onClick={handleSearchActive} />
         </StyledSearch>
       ) : (

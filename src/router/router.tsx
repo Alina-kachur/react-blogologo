@@ -1,15 +1,14 @@
 import { MainTemplate, RequareAuth } from "components";
 import {
-  ArticlesInfoPage,
   FavoritesPage,
   HomePage,
-  NewsInfoPage,
   NotFoundPage,
   ResetPasswordPage,
-  SearchPage,
+  // SearchPage,
   SignInPage,
   SignUpPage,
 } from "pages";
+import { BlogInfoPage } from "pages/BlogInfoPage/BlogInfoPage";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { ROUTE } from "./routes";
 
@@ -21,14 +20,13 @@ export const router = createBrowserRouter(
         <Route path={ROUTE.NOT_FOUND} element={<NotFoundPage />} />
         <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
         <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
-        <Route path={ROUTE.SEARCH} element={<SearchPage />} />
-        <Route path={ROUTE.ARTICLES_INFO} element={<ArticlesInfoPage />} />
-        <Route path={ROUTE.NEWS_INFO} element={<NewsInfoPage />} />
+        <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
+        {/* <Route path={ROUTE.SEARCH} element={<SearchPage />} /> */}
+        <Route path={ROUTE.BLOG_INFO} element={<BlogInfoPage />} />
       </Route>
       ,
       <Route element={<RequareAuth />}>
         <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
-        <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
       </Route>
     </>,
   ),

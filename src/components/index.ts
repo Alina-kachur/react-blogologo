@@ -10,14 +10,8 @@ import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { Title } from "./Title/Title";
 import { Tabs } from "./Tabs/Tabs";
-import { ArticlesList } from "./ArticlesList/ArticlesList";
-import { ArticlesListItem } from "./ArticlesListItem/ArticlesListItem";
-import { NewsList } from "./NewsList/NewsList";
-import { NewsListItem } from "./NewsListItem/NewsListItem";
-import { ArticleInfo } from "./ArticleInfo/ArticleInfo";
 import { Spinner } from "./Spinner/Spinner";
 import { CustomSelectTitle } from "./CustomSelectTitle/CustomSelectTitle";
-import { SortByDate } from "./SortByDate/SortByDate";
 import { CustomSelectDate } from "./CustomSelectDate/CustomSelectDate";
 
 export {
@@ -33,13 +27,7 @@ export {
   ResetPassword,
   Title,
   Tabs,
-  ArticlesList,
-  ArticlesListItem,
-  NewsList,
-  NewsListItem,
-  ArticleInfo,
   Spinner,
   CustomSelectTitle,
-  SortByDate,
   CustomSelectDate,
 };

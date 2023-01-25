@@ -1,35 +1,19 @@
 import { useToggle } from "hooks";
 import { Dispatch, SetStateAction } from "react";
-import { ButtonArticles, ButtonNews, StyledTabs } from "./styles";
+import { ButtonTab, StyledTabs } from "./styles";
 
 interface IProps {
-  setActiveTab: Dispatch<SetStateAction<"articles" | "blogs">>;
+  tabValue: string;
+  setActiveTab: () => void;
+  isActive: boolean;
 }
-export type setTab = { active: true | false };
 
-export const Tabs = ({ setActiveTab }: IProps) => {
-  const [isActive, toggleIsActive] = useToggle();
-
+export const Tabs = ({ tabValue, setActiveTab, isActive }: IProps) => {
   return (
     <StyledTabs>
-      <ButtonArticles
-        active={isActive}
-        onClick={() => {
-          setActiveTab("articles");
-          toggleIsActive();
-        }}
-      >
-        Articles
-      </ButtonArticles>
-      <ButtonNews
-        onClick={() => {
-          setActiveTab("blogs");
-          toggleIsActive();
-        }}
-        active={isActive}
-      >
-        News
-      </ButtonNews>
+      <ButtonTab onClick={setActiveTab} $isActive={isActive}>
+        {tabValue}
+      </ButtonTab>
     </StyledTabs>
   );
 };

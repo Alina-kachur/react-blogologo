@@ -18,5 +18,8 @@ const SortBlock = styled.div`
     gap: 20px;
   }
 `;
+const TabsBlock = styled.div`
+  display: flex;
+`;
 
-export { WrapperHomePage, SortBlock };
+export { WrapperHomePage, SortBlock, TabsBlock };

@@ -1,4 +1,4 @@
-import { IArticleAPI } from "./types";
-import { INewAPI } from "./types";
+import { IBlogAPI } from "./types";
+import { ISearch } from "./types";
 
-export type { IArticleAPI, INewAPI };
+export type { IBlogAPI, ISearch };

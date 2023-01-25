@@ -6,6 +6,5 @@ export enum ROUTE {
   SIGN_UP = "sign-up",
   RESET_PASSWORD = "reset-password",
   SEARCH = "search",
-  ARTICLES_INFO = "articles/:id",
-  NEWS_INFO = "news/:id",
+  BLOG_INFO = "articles/:id",
 }

@@ -8,7 +8,6 @@ interface IUserState {
   email: null | string;
   password: string;
   isAuth: boolean;
-  // favorites: INewAPI[];
   error: null | string;
 }
 interface ISignUp {
@@ -68,7 +67,6 @@ export const fetchSignIn = createAsyncThunk<
   try {
     const auth = getAuth();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
     const userEmail = userCredential.user.email;
 
     return { userEmail };

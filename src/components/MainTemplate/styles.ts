@@ -13,6 +13,7 @@ const WrapperOutlet = styled.div`
   display: grid;
   place-self: center;
   width: 63%;
+  padding-bottom: 50px;
   ${Media.XXL} {
     width: 80%;
   }
