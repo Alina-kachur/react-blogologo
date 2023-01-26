@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Color, S1 } from "ui";
 
@@ -33,4 +34,16 @@ const Post = styled.p`
   color: ${Color.MEDIUM_TEXT};
 `;
 
-export { StyledBlogInfo, Info, Navigate, Home, Post, Image };
+const SourceBlock = styled.div`
+  background-color: ${Color.PRIMARY};
+  border-radius: 10px;
+  padding: 15px;
+  width: 120px;
+`;
+
+const SourceLink = styled.a`
+  ${S1}
+  color: ${Color.WHITE};
+`;
+
+export { StyledBlogInfo, Info, Navigate, Home, Post, Image, SourceBlock, SourceLink };

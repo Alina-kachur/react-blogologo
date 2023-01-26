@@ -2,7 +2,16 @@ import { Title } from "components/Title/Title";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IBlogAPI } from "types";
-import { Home, Navigate, Post, StyledBlogInfo, Image, Info } from "./styles";
+import {
+  Home,
+  Navigate,
+  Post,
+  StyledBlogInfo,
+  Image,
+  Info,
+  SourceBlock,
+  SourceLink,
+} from "./styles";
 
 interface IProps {
   item: IBlogAPI;
@@ -24,6 +33,11 @@ export const BlogInfo = ({ item }: IProps) => {
       <Title>{title}</Title>
       <Image src={imageUrl} />
       <Info>{summary}</Info>
+      <SourceBlock>
+        <SourceLink href={url} target="_blank">
+          Read more{" "}
+        </SourceLink>
+      </SourceBlock>
     </StyledBlogInfo>
   );
 };
