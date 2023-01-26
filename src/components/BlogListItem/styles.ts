@@ -24,21 +24,21 @@ const StyledBlogListItem = styled.li`
 `;
 
 const Image = styled.img`
-  height: 250px;
-  object-fit: cover;
   display: block;
-  width: 100%;
   margin-bottom: 15px;
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
 `;
 const PublishedDate = styled.span`
+  padding: 0 20px;
   ${S1}
   color: ${Color.MEDIUM_TEXT};
-  padding: 0 20px;
 `;
 const Info = styled.p`
+  padding: 10px 20px;
   ${B2}
   color: ${Color.SECONDARY_TEXT};
-  padding: 10px 20px;
 `;
 
 export { StyledBlogListItem, Image, PublishedDate, Info };

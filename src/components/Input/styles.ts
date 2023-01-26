@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { B1, Color } from "ui";
 
 const StyledInput = styled.input`
-  width: 100%;
   padding: 10px 0 10px 20px;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid ${Color.EXTRA_LIGHT};
   ${B1}

@@ -4,16 +4,16 @@ import { Media } from "ui";
 const StyledMainTemplate = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   align-items: center;
+  min-height: 100vh;
 `;
 
 const WrapperOutlet = styled.div`
   flex-grow: 1;
   display: grid;
   place-self: center;
-  width: 63%;
   padding-bottom: 50px;
+  width: 63%;
   ${Media.XXL} {
     width: 80%;
   }

@@ -2,21 +2,21 @@ import styled from "styled-components";
 import { Color } from "ui";
 
 const SpinnerBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
   width: 300px;
   height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: transparent;
-  justify-self: center;
 `;
 const SircleBorder = styled.div`
-  width: 150px;
-  height: 150px;
-  padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: rgb(63, 249, 220);
   background: linear-gradient(0deg, rgba(108, 27, 219, 0.1) 33%, rgba(108, 27, 219, 1) 100%);

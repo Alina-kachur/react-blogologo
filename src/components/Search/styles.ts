@@ -11,8 +11,8 @@ const StyledSearch = styled.form`
   /* border: none; */
 `;
 const StyledInput = styled.input`
-  ${B1}
   padding: 10px 10px;
+  ${B1}
   border: 1px solid ${Color.EXTRA_LIGHT};
   border-radius: 5px;
   background-color: ${Color.WHITE_HEADER};

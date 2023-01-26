@@ -6,10 +6,10 @@ const StyledTabs = styled.div`
   /* justify-content: flex-start; */
 `;
 const ButtonTab = styled.button<{ $isActive: boolean }>`
-  ${B2}
-  padding: 20px 40px;
-  color: ${({ $isActive }) => ($isActive === true ? Color.SECONDARY_TEXT : Color.WHITE)};
   margin-right: 20px;
+  padding: 20px 40px;
+  ${B2}
+  color: ${({ $isActive }) => ($isActive === true ? Color.SECONDARY_TEXT : Color.WHITE)};
   border: none;
   border-radius: 16px;
   background: ${({ $isActive }) => ($isActive === true ? Color.LIGHT_CARDS : Color.PRIMARY)};

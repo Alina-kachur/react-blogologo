@@ -3,18 +3,18 @@ import styled from "styled-components";
 import { B2, Color, S1 } from "ui";
 
 const StyledSignInForm = styled.form`
-  width: clamp(272px, 724px, 100%);
-  background-color: ${Color.WHITE_HEADER};
-  border-radius: 16px;
-  padding: 40px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  padding: 40px;
+  width: clamp(272px, 724px, 100%);
+  background-color: ${Color.WHITE_HEADER};
+  border-radius: 16px;
 `;
 const ForgotText = styled.p`
+  padding-top: 7px;
   color: ${Color.PRIMARY};
   ${S1};
-  padding-top: 7px;
   :hover {
     text-decoration: underline;
     transition-duration: 0.5s;
@@ -22,35 +22,36 @@ const ForgotText = styled.p`
 `;
 
 const SignInLabel = styled.label`
+  padding: 20px 0 10px 0;
   ${B2};
   color: ${Color.SECONDARY_TEXT};
-  padding: 20px 0 10px 0;
 `;
 const SignInButton = styled.button`
+  margin-top: 50px;
+  padding: 16px 0;
+  width: 100%;
   ${B2};
   color: ${Color.WHITE};
   background-color: ${Color.PRIMARY};
   border: none;
-  padding: 16px 0;
-  width: 100%;
   border-radius: 5px;
-  margin-top: 50px;
+
   :hover {
     background-color: ${Color.PRIMARY_LIGHT};
     transition-duration: 0.5s;
   }
 `;
 const SignInText = styled.p`
-  color: ${Color.SECONDARY_TEXT};
-  ${S1};
   padding-top: 10px;
   text-align: center;
+  color: ${Color.SECONDARY_TEXT};
+  ${S1};
 `;
 const SignInNavLink = styled(NavLink)`
+  padding-left: 7px;
   ${S1};
   color: ${Color.PRIMARY};
   font-weight: 600;
-  padding-left: 7px;
   :hover {
     color: ${Color.PRIMARY_LIGHT};
     transition-duration: 0.5s;

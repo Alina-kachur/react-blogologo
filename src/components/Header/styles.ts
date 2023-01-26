@@ -4,13 +4,12 @@ import styled from "styled-components";
 import { Color, Media } from "ui";
 
 const StyledHeader = styled.header`
-  background-color: ${Color.WHITE_HEADER};
   display: grid;
   grid-template-columns: 1fr 8fr 1fr;
   align-items: center;
-  width: 100%;
   padding: 20px 32px;
-
+  width: 100%;
+  background-color: ${Color.WHITE_HEADER};
   ${Media.XL} {
     grid-template-columns: 1fr 6fr 1fr;
   }

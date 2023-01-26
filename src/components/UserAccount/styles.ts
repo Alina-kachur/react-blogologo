@@ -8,8 +8,8 @@ const StyledLink = styled(NavLink)`
   align-items: center;
   grid-template-columns: 1fr 1fr;
   padding-left: 20px;
-  border-left: 1px solid ${Color.LIGHT};
   height: 100%;
+  border-left: 1px solid ${Color.LIGHT};
 `;
 
 const Text = styled.p`

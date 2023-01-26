@@ -15,32 +15,29 @@ const Image = styled.img`
 `;
 
 const Info = styled.p`
-  ${S1}
   padding: 0 40px;
+  ${S1}
   color: ${Color.SECONDARY_TEXT};
 `;
-
 const Navigate = styled.div`
   display: flex;
   padding-top: 30px;
 `;
 const Home = styled.button`
   ${S1}
-  border: none;
   color: ${Color.SECONDARY_TEXT};
+  border: none;
 `;
 const Post = styled.p`
   ${S1}
   color: ${Color.MEDIUM_TEXT};
 `;
-
 const SourceBlock = styled.div`
-  background-color: ${Color.PRIMARY};
-  border-radius: 10px;
   padding: 15px;
   width: 120px;
+  background-color: ${Color.PRIMARY};
+  border-radius: 10px;
 `;
-
 const SourceLink = styled.a`
   ${S1}
   color: ${Color.WHITE};

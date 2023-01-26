@@ -3,10 +3,10 @@ import { Color, Media, S1 } from "ui";
 
 const StyledFooter = styled.footer`
   display: flex;
-  padding: 34px 0;
-  width: 68%;
   justify-content: space-between;
   align-items: center;
+  padding: 34px 0;
+  width: 68%;
   border-top: 1.5px solid ${Color.LIGHT};
   background-color: ${Color.LIGHT_BACKGROUND};
   ${Media.XXL} {
@@ -22,9 +22,9 @@ const StyledFooter = styled.footer`
     width: 85%;
   }
   ${Media.XS} {
-    width: 90%;
     flex-direction: column;
     gap: 15px;
+    width: 90%;
   } ;
 `;
 const CopyRight = styled.p`
