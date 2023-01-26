@@ -1,18 +1,9 @@
-import { CustomSelectDate } from "components";
-import { BlogList } from "components/BlogList/BlogList";
-import {
-  CustomSelectTitle,
-  ISelectOption,
-  sortOptions,
-} from "components/CustomSelectTitle/CustomSelectTitle";
-import { Pagination } from "components/Pagination/Pagination";
-import { Tabs } from "components/Tabs/Tabs";
-import { Title } from "components/Title/Title";
-import { TabValue } from "config/tabValue";
+import { BlogList, CustomSelectDate, CustomSelectTitle, Pagination, Tabs, Title } from "components";
+import { ISelectOption, sortOptions } from "components/CustomSelectTitle/CustomSelectTitle";
+import { TabValue } from "config";
 import { useToggle, useWindowSize } from "hooks";
 import { useState, useEffect } from "react";
-import { fetchArticles, fetchNews, useAppDispatch, useAppSelector } from "store";
-import { getBlog } from "store/selectors/blogSelector";
+import { fetchArticles, fetchNews, getBlog, useAppDispatch, useAppSelector } from "store";
 import {
   NextPageButton,
   PaginationBlok,

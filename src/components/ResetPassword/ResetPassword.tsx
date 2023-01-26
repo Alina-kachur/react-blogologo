@@ -1,9 +1,9 @@
-import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
 import { StyledInput } from "components/Search/styles";
 import { TextErrors } from "components/SignInForm/styles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ResetPasswordLabel, StyledResetPassword, SubmitButton, SubTitle } from "./styles";
 import { Title } from "components/Title/Title";
+import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
 interface IFormValues {
   email: string;
 }

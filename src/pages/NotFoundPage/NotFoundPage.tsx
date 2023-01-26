@@ -1,4 +1,4 @@
-import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
+import { BackHomeButton } from "components";
 import { NotFoundContainer, SubTitleNotFound, TextNotFound, TitleNotFound } from "./styles";
 
 export const NotFoundPage = () => {

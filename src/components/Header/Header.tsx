@@ -1,7 +1,6 @@
 import { StyledHeader, StyledLink, StyledLogoIcon } from "./styles";
 import { ROUTE } from "router";
 import { useInput } from "hooks";
-import { LogoIcon } from "assets/icons";
 import { Search } from "components/Search/Search";
 import { UserAccount } from "components/UserAccount/UserAccount";
 

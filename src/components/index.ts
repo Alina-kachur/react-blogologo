@@ -13,6 +13,13 @@ import { Tabs } from "./Tabs/Tabs";
 import { Spinner } from "./Spinner/Spinner";
 import { CustomSelectTitle } from "./CustomSelectTitle/CustomSelectTitle";
 import { CustomSelectDate } from "./CustomSelectDate/CustomSelectDate";
+import { BackHomeButton } from "./BackHomeButton/BackHomeButton";
+import { BlogInfo } from "./BlogInfo/BlogInfo";
+import { BlogList } from "./BlogList/BlogList";
+import { BlogListItem } from "./BlogListItem/BlogListItem";
+import { Input } from "./Input/Input";
+import { Pagination } from "./Pagination/Pagination";
+import { Slider } from "./Slider/Slider";
 
 export {
   Footer,
@@ -30,4 +37,11 @@ export {
   Spinner,
   CustomSelectTitle,
   CustomSelectDate,
+  BackHomeButton,
+  BlogInfo,
+  BlogList,
+  BlogListItem,
+  Input,
+  Pagination,
+  Slider,
 };

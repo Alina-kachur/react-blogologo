@@ -1,12 +1,9 @@
-import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { Slide, StyledSlider } from "./styles";
 import { useKeenSlider } from "keen-slider/react";
-import { useAppSelector } from "store";
-import { getBlog } from "store/selectors/blogSelector";
+import { getBlog, useAppSelector } from "store";
 import { Link } from "react-router-dom";
 import { BlogListItem } from "components/BlogListItem/BlogListItem";
-import { BlogList } from "components/BlogList/BlogList";
 
 export const Slider = () => {
   const [ref] = useKeenSlider<HTMLDivElement>({

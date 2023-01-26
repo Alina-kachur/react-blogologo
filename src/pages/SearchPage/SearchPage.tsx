@@ -1,10 +1,6 @@
-import { Spinner, Title } from "components";
-import { BlogList } from "components/BlogList/BlogList";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { spaceNewsAPI } from "services";
-import { fetchArticles, fetchNews, useAppDispatch, useAppSelector } from "store";
-import { getBlog } from "store/selectors/blogSelector";
+import { BlogList, Spinner, Title } from "components";
+import { useEffect } from "react";
+import { fetchArticles, fetchNews, getBlog, useAppDispatch, useAppSelector } from "store";
 import { WrapperSearchPage } from "./styles";
 
 export const SearchPage = () => {

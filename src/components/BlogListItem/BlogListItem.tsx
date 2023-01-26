@@ -1,4 +1,3 @@
-import React from "react";
 import { generatePath, Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { IBlogAPI } from "types";

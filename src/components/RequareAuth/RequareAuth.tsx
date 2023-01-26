@@ -1,7 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { ROUTE } from "router";
-import { useAppSelector } from "store";
-import { setUser } from "store/selectors/userSelector";
+import { setUser, useAppSelector } from "store";
 
 export const RequareAuth = () => {
   const { isAuth } = useAppSelector(setUser);

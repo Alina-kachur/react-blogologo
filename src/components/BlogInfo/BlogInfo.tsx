@@ -1,5 +1,4 @@
 import { Title } from "components/Title/Title";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { IBlogAPI } from "types";
 import {

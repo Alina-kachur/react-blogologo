@@ -1,10 +1,7 @@
-import { Spinner } from "components";
-import { BlogInfo } from "components/BlogInfo/BlogInfo";
-import { Slider } from "components/Slider/Slider";
+import { BlogInfo, Slider, Spinner } from "components";
 import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { fetchArticleById, useAppDispatch, useAppSelector } from "store";
-import { getArticlesById } from "store/selectors/blogInfoSelector";
+import { fetchArticleById, getArticlesById, useAppDispatch, useAppSelector } from "store";
 import { WrapperBlogInfoPage } from "./styles";
 
 export const BlogInfoPage = () => {

@@ -14,9 +14,8 @@ import {
 } from "./styles";
 import { ROUTE } from "router";
 import { Title } from "components/Title/Title";
-import { useAppDispatch } from "store";
+import { fetchSignIn, useAppDispatch } from "store";
 import { useNavigate } from "react-router-dom";
-import { fetchSignIn } from "store/slices/userSlice/userSlice";
 
 interface IFormValues {
   email: string;
