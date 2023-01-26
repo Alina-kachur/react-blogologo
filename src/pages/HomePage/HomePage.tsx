@@ -5,6 +5,7 @@ import {
   ISelectOption,
   sortOptions,
 } from "components/CustomSelectTitle/CustomSelectTitle";
+import { Pagination } from "components/Pagination/Pagination";
 import { Tabs } from "components/Tabs/Tabs";
 import { Title } from "components/Title/Title";
 import { TabValue } from "config/tabValue";
@@ -12,7 +13,14 @@ import { useToggle, useWindowSize } from "hooks";
 import { useState, useEffect } from "react";
 import { fetchArticles, fetchNews, useAppDispatch, useAppSelector } from "store";
 import { getBlog } from "store/selectors/blogSelector";
-import { SortBlock, TabsBlock, WrapperHomePage } from "./styles";
+import {
+  NextPageButton,
+  PaginationBlok,
+  PrevPageButton,
+  SortBlock,
+  TabsBlock,
+  WrapperHomePage,
+} from "./styles";
 
 export const HomePage = () => {
   const [isActive, toggleIsActive] = useToggle();
@@ -21,8 +29,8 @@ export const HomePage = () => {
   const { articles, news, error, isLoading } = useAppSelector(getBlog);
   const dispatch = useAppDispatch();
 
-  const [page, setPage] = useState<number>(1);
-
+  const [isActivePagination, setIsActivePagination] = useState(true);
+  const [paramsPage, setParamsPage] = useState({ page: 0, current: 1 });
   const [titleSort, setTitleSort] = useState<ISelectOption>(sortOptions[0]);
   const [sortDate, setSortDate] = useState<string>("Day");
 
@@ -37,13 +45,33 @@ export const HomePage = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(fetchArticles({ page: 1, titleWord: "", value: "" }));
-  }, [dispatch]);
+  const handleNextPage = () => {
+    setParamsPage({
+      page: paramsPage.page === 14515 ? 14515 : paramsPage.page + 12,
+      current: paramsPage.current < 1 ? 1 : paramsPage.current + 1,
+    });
+  };
+  const handlePrevPage = () => {
+    setParamsPage({
+      page: paramsPage.page === 0 ? 0 : paramsPage.page - 12,
+      current: paramsPage.current > 1212 ? 1212 : paramsPage.current - 1,
+    });
+  };
+  const handlePage = (amountCards: number, pageNumber: number) => {
+    setParamsPage({
+      page: paramsPage.page + amountCards,
+      current: paramsPage.current + pageNumber,
+    });
+    setIsActivePagination(true);
+  };
 
   useEffect(() => {
-    dispatch(fetchNews({ page: 1, titleWord: "", value: "" }));
-  }, [dispatch]);
+    dispatch(fetchArticles({ page: paramsPage.page, titleWord: "", value: "" }));
+  }, [dispatch, paramsPage.page]);
+
+  useEffect(() => {
+    dispatch(fetchNews({ page: paramsPage.page, titleWord: "", value: "" }));
+  }, [dispatch, paramsPage.page]);
 
   return (
     <WrapperHomePage>
@@ -71,6 +99,33 @@ export const HomePage = () => {
       ) : (
         <BlogList list={news} />
       )}
+      <PaginationBlok>
+        {paramsPage.current === 1 ? (
+          true
+        ) : (
+          <PrevPageButton onClick={handlePrevPage}>Prev</PrevPageButton>
+        )}
+        <Pagination
+          handlePage={() => handlePage(12, 1)}
+          paramsPage={paramsPage.current - 1}
+          isActive={!isActivePagination}
+        />
+        <Pagination
+          handlePage={() => handlePage(12, 1)}
+          paramsPage={paramsPage.current}
+          isActive={isActivePagination}
+        />
+        <Pagination
+          handlePage={() => handlePage(12, 1)}
+          paramsPage={paramsPage.current + 1}
+          isActive={!isActivePagination}
+        />
+        {paramsPage.current === 1212 ? (
+          true
+        ) : (
+          <NextPageButton onClick={handleNextPage}>Next</NextPageButton>
+        )}
+      </PaginationBlok>
     </WrapperHomePage>
   );
 };

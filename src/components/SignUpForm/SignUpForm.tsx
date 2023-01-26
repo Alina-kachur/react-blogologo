@@ -15,13 +15,6 @@ import { Title } from "components/Title/Title";
 import { useAppDispatch } from "store";
 import { useNavigate } from "react-router-dom";
 
-interface IFormValues {
-  name: string;
-  surname: string;
-  email: string;
-  password: string;
-}
-
 const validateRules = {
   name: {
     required: "* Name is required",
@@ -54,7 +47,17 @@ const validateRules = {
   },
 };
 
-export const SignUpForm = () => {
+export interface IFormValues {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+}
+interface IProps {
+  handleRegisterUser: (userData: IFormValues) => void;
+}
+
+export const SignUpForm = ({ handleRegisterUser }: IProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -73,24 +76,24 @@ export const SignUpForm = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<IFormValues> = ({ email, password }: IFormValues) => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        navigate(ROUTE.HOME);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-    reset();
-  };
+  // const onSubmit: SubmitHandler<IFormValues> = ({ email, password }: IFormValues) => {
+  //   const auth = getAuth();
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       console.log(userCredential);
+  //       navigate(ROUTE.HOME);
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //     });
+  //   reset();
+  // };
   return (
     <>
       <BackHomeButton />
       <Title>Sign Up</Title>
-      <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledSignUpForm onSubmit={handleSubmit(handleRegisterUser)}>
         <SignUpLabel>Name</SignUpLabel>
         <StyledInput
           type="name"
@@ -119,7 +122,7 @@ export const SignUpForm = () => {
           {...register("password", validateRules.email)}
         />
         {errors.password && <TextErrors>{errors.password.message}</TextErrors>}
-        <SignUpButton>Sign Up</SignUpButton>
+        <SignUpButton type="submit">Sign Up</SignUpButton>
         <SignUpText>
           Already have an account?
           <SignUpNavLink to={ROUTE.HOME + ROUTE.SIGN_IN}>Sign In</SignUpNavLink>
