@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Color, S1 } from "ui";
+import { Color, Media, S1 } from "ui";
 
 const StyledBlogInfo = styled.div`
   display: flex;
@@ -12,6 +11,13 @@ const Image = styled.img`
   height: 520px;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  ${Media.SM} {
+    width: 500px;
+  }
+  ${Media.XS} {
+    width: 100%;
+    height: 300px;
+  }
 `;
 
 const Info = styled.p`

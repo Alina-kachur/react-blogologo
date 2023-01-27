@@ -13,6 +13,7 @@ const WrapperHomePage = styled.div`
 const SortBlock = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 20px 0;
   ${Media.SM} {
     flex-direction: column;
     gap: 20px;

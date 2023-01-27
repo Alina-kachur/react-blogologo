@@ -1,14 +1,35 @@
 import { CloseIcon, SearchIcon } from "assets/icons";
 import styled from "styled-components";
-import { B1, Color } from "ui";
+import { B1, Color, Media } from "ui";
 
 const StyledSearch = styled.form`
   display: grid;
-  grid-template-columns: 98% 2%;
+  grid-template-columns: 99% 0%;
   align-items: center;
   padding: 0 20px;
-
-  /* border: none; */
+  width: 1200px;
+  ${Media.XXL} {
+    width: 1000px;
+  }
+  ${Media.XL} {
+    width: 850px;
+  }
+  ${Media.LG} {
+    width: 600px;
+  }
+  ${Media.MD} {
+    width: 400px;
+  }
+  ${Media.SM} {
+    padding: 30px 0;
+    width: 350px;
+  }
+  ${Media.XS} {
+    width: 300px;
+  }
+  ${Media.XXS} {
+    width: 250px;
+  }
 `;
 const StyledInput = styled.input`
   padding: 10px 10px;
@@ -33,25 +54,32 @@ const StyledInput = styled.input`
   &:invalid {
     border: 1px solid ${Color.ERROR};
   }
+  &::-ms-clear {
+    width: 0;
+    height: 0;
+  }
 
-  /* &:disabled{
-    background-color: ${Color.EXTRA_LIGHT};
-    color: ${Color.LIGHT};
-  } */
   .text-field__input[type="search"]::-webkit-search-decoration,
   .text-field__input[type="search"]::-webkit-search-cancel-button,
   .text-field__input[type="search"]::-webkit-search-results-button,
   .text-field__input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance: none;
   }
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button,
+  ::-webkit-clear-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 const StyledSearchIcon = styled(SearchIcon)`
+  justify-self: flex-end;
   cursor: pointer;
   margin-right: 20px;
-  justify-self: flex-end;
-
-  /* fill: ${Color.MEDIUM_TEXT}; */
+  ${Media.SM} {
+    margin-top: 40px;
+  }
 `;
 
 const StyledCloseIcon = styled(CloseIcon)`

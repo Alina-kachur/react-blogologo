@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { B2, Color } from "ui";
+import { B2, Color, Media } from "ui";
 
 const StyledTabs = styled.div`
   display: flex;
-  /* justify-content: flex-start; */
 `;
 const ButtonTab = styled.button<{ $isActive: boolean }>`
   margin-right: 20px;
@@ -17,6 +16,9 @@ const ButtonTab = styled.button<{ $isActive: boolean }>`
   :hover {
     box-shadow: 0px 7px 12px 0px rgba(0, 0, 0, 0.7);
     transition-duration: 0.5s;
+  }
+  ${Media.XS} {
+    padding: 15px 30px;
   }
 `;
 

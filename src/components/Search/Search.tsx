@@ -11,8 +11,10 @@ import { memo } from "react";
 interface ISearch {
   type: HTMLInputTypeAttribute;
   placeholder: string;
-  value: string;
+  value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleClose?: () => void;
+  onClick?: () => void;
 }
 
 export const Search = memo((props: ISearch) => {
@@ -30,6 +32,7 @@ export const Search = memo((props: ISearch) => {
   const handleSearch = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     navigate(ROUTE.SEARCH);
+
     reset();
   };
 
@@ -44,7 +47,7 @@ export const Search = memo((props: ISearch) => {
   return (
     <>
       {isActiveSearch ? (
-        <StyledSearch onSubmit={handleSearch}>
+        <StyledSearch onSubmit={handleSearch} onClick={props.onClick}>
           <StyledInput placeholder="Search..." type="search" {...titleWord} />
           <StyledCloseIcon onClick={handleSearchActive} />
         </StyledSearch>

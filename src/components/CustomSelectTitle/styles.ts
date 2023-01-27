@@ -27,8 +27,9 @@ export const styledSelect: StylesConfig<ISelectOption, false> = {
     cursor: "pointer",
     backgroundColor: `${Color.LIGHT_CARDS}`,
     color: `${Color.SECONDARY_TEXT}`,
+    boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.5)",
     "&:hover": {
-      border: `1px solid ${Color.PRIMARY}`,
+      boxShadow: "0px 5px 10px 0px rgba(0, 0, 0, 0.7)",
     },
   }),
 };

@@ -20,6 +20,7 @@ import { BlogListItem } from "./BlogListItem/BlogListItem";
 import { Input } from "./Input/Input";
 import { Pagination } from "./Pagination/Pagination";
 import { Slider } from "./Slider/Slider";
+import { Burger } from "./Burger/Burger";
 
 export {
   Footer,
@@ -44,4 +45,5 @@ export {
   Input,
   Pagination,
   Slider,
+  Burger,
 };

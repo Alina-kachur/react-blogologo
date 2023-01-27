@@ -12,8 +12,11 @@ const StyledFooter = styled.footer`
   ${Media.XXL} {
     width: 80%;
   }
+  ${Media.XL} {
+    width: 90%;
+  }
   ${Media.LG} {
-    width: 80%;
+    width: 75%;
   }
   ${Media.MD} {
     width: 85%;

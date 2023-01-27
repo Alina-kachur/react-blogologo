@@ -8,7 +8,6 @@ const H1 = css`
   font-weight: 700;
   font-size: 56px;
   line-height: 80px;
-
   ${Media.XS} {
     font-size: 32px;
     line-height: 48px;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Color, H1 } from "ui";
+import { Color, H1, Media } from "ui";
 
 const StyledTitle = styled.h1`
   padding: 20px 0;
