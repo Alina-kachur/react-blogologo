@@ -1,6 +1,7 @@
 import Select from "react-select";
 import { SortTitle } from "types/types";
 import { styledSelect } from "./styles";
+import { memo } from "react";
 
 export interface ISelectOption {
   value: string;
@@ -17,6 +18,6 @@ export const sortOptions: ISelectOption[] = [
   { value: SortTitle.ZA, label: "Title (Z-A)" },
 ];
 
-export const CustomSelectTitle = (props: IProps) => {
+export const CustomSelectTitle = memo((props: IProps) => {
   return <Select styles={styledSelect} isSearchable={false} isMulti={false} {...props} />;
-};
+});

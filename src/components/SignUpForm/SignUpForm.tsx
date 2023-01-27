@@ -14,6 +14,7 @@ import {
 import { Title } from "components/Title/Title";
 import { useAppDispatch } from "store";
 import { useNavigate } from "react-router-dom";
+import { memo } from "react";
 
 const validateRules = {
   name: {
@@ -57,7 +58,7 @@ interface IProps {
   handleRegisterUser: (userData: IFormValues) => void;
 }
 
-export const SignUpForm = ({ handleRegisterUser }: IProps) => {
+export const SignUpForm = memo(({ handleRegisterUser }: IProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -130,4 +131,4 @@ export const SignUpForm = ({ handleRegisterUser }: IProps) => {
       </StyledSignUpForm>
     </>
   );
-};
+});

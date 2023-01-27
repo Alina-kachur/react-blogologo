@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 import { StyledTitle } from "./styles";
 
 interface IProps {
   children: ReactNode;
 }
 
-export const Title = ({ children }: IProps) => {
+export const Title = memo(({ children }: IProps) => {
   return <StyledTitle>{children}</StyledTitle>;
-};
+});

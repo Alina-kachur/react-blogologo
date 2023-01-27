@@ -1,6 +1,7 @@
 import Select, { OnChangeValue } from "react-select";
 import { Period } from "types/types";
 import { styledSelect } from "./styles";
+import { memo } from "react";
 
 export interface IOption {
   value: string;
@@ -10,7 +11,7 @@ interface IProps {
   value: string;
   onChange: (value: string) => void;
 }
-export const CustomSelectDate = ({ value, onChange }: IProps) => {
+export const CustomSelectDate = memo(({ value, onChange }: IProps) => {
   const options: IOption[] = [
     { value: Period.DAY, label: "Day" },
     { value: Period.WEEK, label: "Week" },
@@ -32,4 +33,4 @@ export const CustomSelectDate = ({ value, onChange }: IProps) => {
       onChange={handleSort}
     />
   );
-};
+});

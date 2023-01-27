@@ -4,19 +4,19 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { ResetPasswordLabel, StyledResetPassword, SubmitButton, SubTitle } from "./styles";
 import { Title } from "components/Title/Title";
 import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
+import { memo } from "react";
 interface IFormValues {
   email: string;
 }
 
-const onSubmit: SubmitHandler<IFormValues> = ({ email }: IFormValues) => {};
-
-export const ResetPassword = () => {
+export const ResetPassword = memo(({ email }: IFormValues) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm<IFormValues>();
+  const onSubmit: SubmitHandler<IFormValues> = ({ email }: IFormValues) => {};
   return (
     <>
       <BackHomeButton />
@@ -41,4 +41,4 @@ export const ResetPassword = () => {
       </StyledResetPassword>
     </>
   );
-};
+});

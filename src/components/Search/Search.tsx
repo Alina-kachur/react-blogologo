@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { useDispatch } from "react-redux";
+import { memo } from "react";
 
 interface ISearch {
   type: HTMLInputTypeAttribute;
@@ -14,7 +15,7 @@ interface ISearch {
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Search = (props: ISearch) => {
+export const Search = memo((props: ISearch) => {
   const dispatch = useDispatch();
   const titleWord = useInput();
 
@@ -54,4 +55,4 @@ export const Search = (props: ISearch) => {
       )}
     </>
   );
-};
+});

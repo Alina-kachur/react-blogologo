@@ -2,12 +2,13 @@ import { generatePath, Link, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { IBlogAPI } from "types";
 import { Info, PublishedDate, StyledBlogListItem, Image } from "./styles";
+import { memo } from "react";
 
 interface IProps {
   item: IBlogAPI;
 }
 
-export const BlogListItem = ({ item }: IProps) => {
+export const BlogListItem = memo(({ item }: IProps) => {
   const { imageUrl, publishedAt, title, id } = item;
   const navigate = useNavigate();
 
@@ -28,4 +29,4 @@ export const BlogListItem = ({ item }: IProps) => {
       </Link>
     </StyledBlogListItem>
   );
-};
+});

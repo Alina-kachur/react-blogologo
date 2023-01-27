@@ -1,5 +1,5 @@
 import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { StyledInput } from "components/Input/styles";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import {
@@ -37,7 +37,7 @@ const validateRules = {
   },
 };
 
-export const SignInForm = () => {
+export const SignInForm = memo(({ email, password }: IFormValues) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
@@ -96,4 +96,4 @@ export const SignInForm = () => {
       </StyledSignInForm>
     </>
   );
-};
+});

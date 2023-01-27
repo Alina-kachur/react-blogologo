@@ -11,12 +11,13 @@ import {
   SourceBlock,
   SourceLink,
 } from "./styles";
+import { memo } from "react";
 
 interface IProps {
   item: IBlogAPI;
 }
 
-export const BlogInfo = ({ item }: IProps) => {
+export const BlogInfo = memo(({ item }: IProps) => {
   const { title, imageUrl, url, summary, id } = item;
 
   const navigate = useNavigate();
@@ -39,4 +40,4 @@ export const BlogInfo = ({ item }: IProps) => {
       </SourceBlock>
     </StyledBlogInfo>
   );
-};
+});

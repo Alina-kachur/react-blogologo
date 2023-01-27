@@ -1,5 +1,4 @@
-import { useToggle } from "hooks";
-import { Dispatch, SetStateAction } from "react";
+import { memo } from "react";
 import { ButtonTab, StyledTabs } from "./styles";
 
 interface IProps {
@@ -8,7 +7,7 @@ interface IProps {
   isActive: boolean;
 }
 
-export const Tabs = ({ tabValue, setActiveTab, isActive }: IProps) => {
+export const Tabs = memo(({ tabValue, setActiveTab, isActive }: IProps) => {
   return (
     <StyledTabs>
       <ButtonTab onClick={setActiveTab} $isActive={isActive}>
@@ -16,4 +15,4 @@ export const Tabs = ({ tabValue, setActiveTab, isActive }: IProps) => {
       </ButtonTab>
     </StyledTabs>
   );
-};
+});
