@@ -5,12 +5,11 @@ import { StyledPagination } from "./styles";
 interface IProps {
   paramsPage: number;
   isActive: boolean;
-  handlePage: () => void;
 }
 
-export const Pagination = ({ paramsPage, isActive, handlePage }: IProps) => {
+export const Pagination = ({ paramsPage, isActive }: IProps) => {
   return (
-    <StyledPagination onClick={handlePage} current={paramsPage} $isActive={isActive}>
+    <StyledPagination current={paramsPage} $isActive={isActive}>
       {paramsPage}
     </StyledPagination>
   );

@@ -41,19 +41,14 @@ export const HomePage = () => {
       page: paramsPage.page === 14515 ? 14515 : paramsPage.page + 12,
       current: paramsPage.current < 1 ? 1 : paramsPage.current + 1,
     });
+    window.scrollTo(0, 0);
   };
   const handlePrevPage = () => {
     setParamsPage({
       page: paramsPage.page === 0 ? 0 : paramsPage.page - 12,
       current: paramsPage.current > 1212 ? 1212 : paramsPage.current - 1,
     });
-  };
-  const handlePage = (amountCards: number, pageNumber: number) => {
-    setParamsPage({
-      page: paramsPage.page + amountCards,
-      current: paramsPage.current + pageNumber,
-    });
-    setIsActivePagination(true);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
@@ -96,21 +91,9 @@ export const HomePage = () => {
         ) : (
           <PrevPageButton onClick={handlePrevPage}>Prev</PrevPageButton>
         )}
-        <Pagination
-          handlePage={() => handlePage(12, 1)}
-          paramsPage={paramsPage.current - 1}
-          isActive={!isActivePagination}
-        />
-        <Pagination
-          handlePage={() => handlePage(12, 1)}
-          paramsPage={paramsPage.current}
-          isActive={isActivePagination}
-        />
-        <Pagination
-          handlePage={() => handlePage(12, 1)}
-          paramsPage={paramsPage.current + 1}
-          isActive={!isActivePagination}
-        />
+        <Pagination paramsPage={paramsPage.current - 1} isActive={!isActivePagination} />
+        <Pagination paramsPage={paramsPage.current} isActive={isActivePagination} />
+        <Pagination paramsPage={paramsPage.current + 1} isActive={!isActivePagination} />
         {paramsPage.current === 1212 ? (
           true
         ) : (
