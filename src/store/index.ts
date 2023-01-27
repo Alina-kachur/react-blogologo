@@ -3,6 +3,7 @@ import { themeSlice } from "./slices/themeSlice/themeSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { setTheme } from "./selectors/themeSelector";
 import { setUser } from "./selectors/userSelector";
+import { setSearch } from "./slices/blogSlice/blogSlice";
 import { fetchArticles } from "./slices/blogSlice/blogSlice";
 import { fetchArticleById } from "./slices/blogInfoSlice/blogInfoSlice";
 import { fetchNews } from "./slices/blogSlice/blogSlice";
@@ -23,6 +24,7 @@ export {
   useAppDispatch,
   useAppSelector,
   setTheme,
+  setSearch,
   getUserName,
   setUser,
   fetchArticleById,

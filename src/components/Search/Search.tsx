@@ -1,7 +1,7 @@
 import { StyledCloseIcon, StyledInput, StyledSearch, StyledSearchIcon } from "./styles";
-import { HTMLInputTypeAttribute, ChangeEvent, FormEvent } from "react";
-import { useToggle } from "hooks";
-import { useAppDispatch, useAppSelector } from "store";
+import { HTMLInputTypeAttribute, ChangeEvent, FormEvent, useEffect } from "react";
+import { useDebounce, useInput, useToggle } from "hooks";
+import { setSearch } from "store";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
@@ -16,24 +16,35 @@ interface ISearch {
 
 export const Search = (props: ISearch) => {
   const dispatch = useDispatch();
+  const titleWord = useInput();
 
   const [isActiveSearch, toggleIsActiveSearch] = useToggle();
   const handleSearchActive = () => {
     toggleIsActiveSearch();
   };
   const navigate = useNavigate();
+  const debouncedValue = useDebounce(titleWord.value, 1000);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { reset } = useForm();
   const handleSearch = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
     navigate(ROUTE.SEARCH);
     reset();
   };
+
+  useEffect(() => {
+    dispatch(
+      setSearch({
+        titleWord: debouncedValue,
+      }),
+    );
+  }, [debouncedValue, dispatch]);
 
   return (
     <>
       {isActiveSearch ? (
         <StyledSearch onSubmit={handleSearch}>
-          <StyledInput placeholder="Search..." type="search" {...register} />
+          <StyledInput placeholder="Search..." type="search" {...titleWord} />
           <StyledCloseIcon onClick={handleSearchActive} />
         </StyledSearch>
       ) : (
