@@ -1,3 +1,4 @@
 import { TabValue } from "./tabValue";
+import { sortTitle } from "./selectValue";
 
-export { TabValue };
+export { TabValue, sortTitle };

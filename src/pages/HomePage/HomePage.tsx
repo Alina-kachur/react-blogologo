@@ -1,9 +1,10 @@
 import { BlogList, CustomSelectDate, CustomSelectTitle, Pagination, Tabs, Title } from "components";
-import { ISelectOption, sortOptions } from "components/CustomSelectTitle/CustomSelectTitle";
-import { TabValue } from "config";
-import { useToggle, useWindowSize } from "hooks";
+import { sortTitle, TabValue } from "config";
+import { useToggle } from "hooks";
 import { useState, useEffect } from "react";
 import { fetchArticles, fetchNews, getBlog, useAppDispatch, useAppSelector } from "store";
+import { ISelectOption } from "types/types";
+
 import {
   NextPageButton,
   PaginationBlok,
@@ -22,7 +23,7 @@ export const HomePage = () => {
 
   const [isActivePagination, setIsActivePagination] = useState(true);
   const [paramsPage, setParamsPage] = useState({ page: 0, current: 1 });
-  const [titleSort, setTitleSort] = useState<ISelectOption>(sortOptions[0]);
+  const [titleSort, setTitleSort] = useState(sortTitle[0]);
   const [sortDate, setSortDate] = useState<string>("Day");
 
   const handleActiveTab = (value: string) => {
@@ -30,10 +31,11 @@ export const HomePage = () => {
     toggleIsActive();
   };
 
-  const handleTitleSort = (value: ISelectOption | null) => {
-    if (value) {
-      setTitleSort(value);
+  const handleTitleSort = (titleSort: ISelectOption | null) => {
+    if (titleSort) {
+      setTitleSort(titleSort);
     }
+    setParamsPage({ page: 0, current: 1 });
   };
 
   const handleNextPage = () => {
@@ -52,12 +54,12 @@ export const HomePage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchArticles({ page: paramsPage.page, titleWord: "", value: "" }));
-  }, [dispatch, paramsPage.page]);
+    dispatch(fetchArticles({ page: paramsPage.page, titleWord: "", value: titleSort.value }));
+  }, [dispatch, paramsPage.page, titleSort.value]);
 
   useEffect(() => {
-    dispatch(fetchNews({ page: paramsPage.page, titleWord: "", value: "" }));
-  }, [dispatch, paramsPage.page]);
+    dispatch(fetchNews({ page: paramsPage.page, titleWord: "", value: titleSort.value }));
+  }, [dispatch, paramsPage.page, titleSort.value]);
 
   return (
     <WrapperHomePage>
@@ -77,8 +79,8 @@ export const HomePage = () => {
       </TabsBlock>
 
       <SortBlock>
-        <CustomSelectDate value={sortDate} onChange={setSortDate} />
-        <CustomSelectTitle options={sortOptions} value={titleSort} onChange={handleTitleSort} />
+        {/* <CustomSelectDate value={sortDate} onChange={setSortDate} /> */}
+        <CustomSelectTitle handleSortTitle={handleTitleSort} />
       </SortBlock>
       {tabValue === TabValue.ARTICLES_VALUE ? (
         <BlogList list={articles} />

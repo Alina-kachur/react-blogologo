@@ -9,7 +9,7 @@ interface IFormValues {
   email: string;
 }
 
-export const ResetPassword = memo(({ email }: IFormValues) => {
+export const ResetPassword = memo(() => {
   const {
     register,
     handleSubmit,

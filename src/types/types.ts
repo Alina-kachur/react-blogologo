@@ -22,6 +22,11 @@ interface IEvent {
 interface ISearch extends IBlogAPI {
   titleWord: string;
 }
+
+interface ISelectOption {
+  value: string;
+  label: string;
+}
 export enum SortTitle {
   AZ = "az",
   ZA = "za",
@@ -32,4 +37,4 @@ export enum Period {
   MONTH = "Month",
   YEAR = "Year",
 }
-export type { ISearch, IBlogAPI };
+export type { ISearch, IBlogAPI, ISelectOption };

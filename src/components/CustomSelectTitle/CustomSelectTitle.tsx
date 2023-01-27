@@ -1,23 +1,22 @@
-import Select from "react-select";
-import { SortTitle } from "types/types";
+import Select, { SingleValue } from "react-select";
+import { ISelectOption } from "types/types";
 import { styledSelect } from "./styles";
 import { memo } from "react";
+import { sortTitle } from "config";
 
-export interface ISelectOption {
-  value: string;
-  label: string;
-}
 interface IProps {
-  options: ISelectOption[];
-  value: ISelectOption;
-  onChange: (newValue: ISelectOption | null) => void;
+  handleSortTitle: (option: SingleValue<ISelectOption | null | any>) => void;
 }
 
-export const sortOptions: ISelectOption[] = [
-  { value: SortTitle.AZ, label: "Title (A-Z)" },
-  { value: SortTitle.ZA, label: "Title (Z-A)" },
-];
-
-export const CustomSelectTitle = memo((props: IProps) => {
-  return <Select styles={styledSelect} isSearchable={false} isMulti={false} {...props} />;
+export const CustomSelectTitle = memo(({ handleSortTitle }: IProps) => {
+  return (
+    <Select
+      options={sortTitle}
+      styles={styledSelect}
+      isSearchable={false}
+      isMulti={false}
+      onChange={handleSortTitle}
+      defaultValue={sortTitle[0]}
+    />
+  );
 });

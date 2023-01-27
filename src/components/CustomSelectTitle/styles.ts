@@ -1,6 +1,6 @@
 import { StylesConfig } from "react-select";
+import { ISelectOption } from "types/types";
 import { Color } from "ui";
-import { ISelectOption } from "./CustomSelectTitle";
 
 export const styledSelect: StylesConfig<ISelectOption, false> = {
   option: (provided) => ({

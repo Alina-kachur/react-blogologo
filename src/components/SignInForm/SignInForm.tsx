@@ -37,7 +37,7 @@ const validateRules = {
   },
 };
 
-export const SignInForm = memo(({ email, password }: IFormValues) => {
+export const SignInForm = memo(() => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
