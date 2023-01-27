@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { setTheme, toggleTheme, useAppDispatch, useAppSelector } from "store";
 import { StyledSwitchTheme, StyledText, SwitchThemeButton } from "./styles";
 
-type Theme = "light" | "dark";
-
 export const SwitchTheme = () => {
-  const [theme, setTheme] = useState<Theme>("light");
+  const { currentTheme } = useAppSelector(setTheme);
+  const dispatch = useAppDispatch();
 
   const handleTheme = () => {
-    setTheme((theme) => (theme === "dark" ? "light" : "dark"));
+    dispatch(toggleTheme());
   };
 
   useEffect(() => {
-    document.documentElement.setAttribute("theme", theme);
-  }, [theme]);
+    document.documentElement.setAttribute("theme", currentTheme);
+  }, [currentTheme]);
 
   return (
     <StyledSwitchTheme>
-      {theme === "light" ? (
+      {currentTheme === "light" ? (
         <StyledText>Dark theme</StyledText>
       ) : (
         <StyledText>Light theme</StyledText>
