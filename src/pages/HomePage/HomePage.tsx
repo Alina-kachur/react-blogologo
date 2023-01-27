@@ -1,4 +1,4 @@
-import { BlogList, CustomSelectDate, CustomSelectTitle, Pagination, Tabs, Title } from "components";
+import { BlogList, CustomSelectTitle, Pagination, Tabs, Title } from "components";
 import { sortTitle, TabValue } from "config";
 import { useToggle } from "hooks";
 import { useState, useEffect } from "react";
@@ -24,7 +24,6 @@ export const HomePage = () => {
   const [isActivePagination, setIsActivePagination] = useState(true);
   const [paramsPage, setParamsPage] = useState({ page: 0, current: 1 });
   const [titleSort, setTitleSort] = useState(sortTitle[0]);
-  const [sortDate, setSortDate] = useState<string>("Day");
 
   const handleActiveTab = (value: string) => {
     setTabValue(value);
@@ -79,7 +78,6 @@ export const HomePage = () => {
       </TabsBlock>
 
       <SortBlock>
-        {/* <CustomSelectDate value={sortDate} onChange={setSortDate} /> */}
         <CustomSelectTitle handleSortTitle={handleTitleSort} />
       </SortBlock>
       {tabValue === TabValue.ARTICLES_VALUE ? (

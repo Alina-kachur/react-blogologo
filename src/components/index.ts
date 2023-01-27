@@ -12,7 +12,6 @@ import { Title } from "./Title/Title";
 import { Tabs } from "./Tabs/Tabs";
 import { Spinner } from "./Spinner/Spinner";
 import { CustomSelectTitle } from "./CustomSelectTitle/CustomSelectTitle";
-import { CustomSelectDate } from "./CustomSelectDate/CustomSelectDate";
 import { BackHomeButton } from "./BackHomeButton/BackHomeButton";
 import { BlogInfo } from "./BlogInfo/BlogInfo";
 import { BlogList } from "./BlogList/BlogList";
@@ -37,7 +36,6 @@ export {
   Tabs,
   Spinner,
   CustomSelectTitle,
-  CustomSelectDate,
   BackHomeButton,
   BlogInfo,
   BlogList,

@@ -2,6 +2,7 @@ import { SignInButton, SignInLabel, StyledSignInForm } from "components/SignInFo
 import styled from "styled-components";
 import { Color, H2, H3 } from "ui";
 
+const WrapperForm = styled.div``;
 const StyledResetPassword = styled(StyledSignInForm)``;
 const ResetPasswordLabel = styled(SignInLabel)`
   padding-bottom: 10px;
@@ -13,4 +14,4 @@ const SubTitle = styled.h3`
   color: ${Color.MEDIUM_TEXT};
 `;
 
-export { StyledResetPassword, ResetPasswordLabel, SubmitButton, SubTitle };
+export { StyledResetPassword, ResetPasswordLabel, SubmitButton, SubTitle, WrapperForm };

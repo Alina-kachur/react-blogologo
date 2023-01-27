@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { ROUTE } from "router";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
+  FormWrapper,
   SignUpButton,
   SignUpLabel,
   SignUpNavLink,
@@ -12,9 +13,10 @@ import {
   TextErrors,
 } from "./styles";
 import { Title } from "components/Title/Title";
-import { useAppDispatch } from "store";
+import { fetchSignUp, getUserInfo, useAppDispatch, useAppSelector } from "store";
 import { useNavigate } from "react-router-dom";
-import { memo } from "react";
+import { useState } from "react";
+import { IUser } from "types";
 
 const validateRules = {
   name: {
@@ -49,66 +51,55 @@ const validateRules = {
 };
 
 export interface IFormValues {
-  name: string;
-  surname: string;
+  userName: string;
   email: string;
   password: string;
 }
-interface IProps {
-  handleRegisterUser: (userData: IFormValues) => void;
-}
 
-export const SignUpForm = memo(({ handleRegisterUser }: IProps) => {
+export const SignUpForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const { isLoading } = useAppSelector(getUserInfo);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
-  } = useForm<IFormValues>({
-    mode: "onChange",
-    defaultValues: {
-      name: "",
-      surname: "",
-      email: "",
-      password: "",
-    },
-  });
+    formState: { errors },
+    watch,
+    getValues,
+  } = useForm<IFormValues>();
 
-  // const onSubmit: SubmitHandler<IFormValues> = ({ email, password }: IFormValues) => {
-  //   const auth = getAuth();
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       console.log(userCredential);
-  //       navigate(ROUTE.HOME);
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //     });
-  //   reset();
-  // };
+  const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
+    const userInfoToSave: IUser = {
+      name: userInfo.userName,
+      email: userInfo.email,
+      isAuth: true,
+    };
+    dispatch(fetchSignUp(userInfo))
+      .unwrap()
+      .then(() => {
+        localStorage.setItem("userInfo", JSON.stringify(userInfoToSave));
+        navigate(ROUTE.HOME + ROUTE.USER_ACCOUNT);
+        reset();
+      })
+      .catch((error) => {
+        setErrorMessage(error);
+      });
+  };
   return (
-    <>
+    <FormWrapper>
       <BackHomeButton />
       <Title>Sign Up</Title>
-      <StyledSignUpForm onSubmit={handleSubmit(handleRegisterUser)}>
+      <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>
         <SignUpLabel>Name</SignUpLabel>
         <StyledInput
           type="name"
           placeholder="Your name"
-          {...register("name", validateRules.name)}
+          {...register("userName", validateRules.name)}
         />
-        {errors.name && <TextErrors>{errors.name.message}</TextErrors>}
-        <SignUpLabel>Surname</SignUpLabel>
-        <StyledInput
-          type="surname"
-          placeholder="Your surname"
-          {...register("surname", validateRules.surname)}
-        />
-        {errors.surname && <TextErrors>{errors.surname.message}</TextErrors>}
+        {errors.userName && <TextErrors>{errors.userName.message}</TextErrors>}
         <SignUpLabel>Email</SignUpLabel>
         <StyledInput
           type="email"
@@ -129,6 +120,6 @@ export const SignUpForm = memo(({ handleRegisterUser }: IProps) => {
           <SignUpNavLink to={ROUTE.HOME + ROUTE.SIGN_IN}>Sign In</SignUpNavLink>
         </SignUpText>
       </StyledSignUpForm>
-    </>
+    </FormWrapper>
   );
-});
+};

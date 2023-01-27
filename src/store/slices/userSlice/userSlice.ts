@@ -1,93 +1,75 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendPasswordResetEmail,
+  signOut,
+} from "firebase/auth";
 import { FirebaseErrorCode, FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
 interface IUserState {
   name: string;
-  surname: string;
   email: null | string;
   password: string;
   isAuth: boolean;
   error: null | string;
-}
-interface ISignUp {
-  email: string;
-  password: string;
-  userName: string;
-  userSurname: string;
-}
-interface ISignIn {
-  email: string;
-  password: string;
-}
-interface IUserEmail {
-  userEmail: string | null;
+  isLoading: boolean;
 }
 
-interface IUserData {
-  userEmail: string | null;
-  name: string;
-  surname: string;
-}
+const userInfo = JSON.parse(localStorage.getItem("userInfo")!);
 
 const initialState: IUserState = {
-  name: "",
-  surname: "",
-  email: "",
+  name: userInfo && userInfo.name,
+  email: userInfo && userInfo.email,
   password: "",
-  isAuth: false,
+  isAuth: userInfo && userInfo.isAuth,
   error: null,
+  isLoading: false,
 };
 
 export const fetchSignUp = createAsyncThunk<
-  IUserData,
-  ISignUp,
+  { userEmail: string | null; name: string },
+  { email: string; password: string; userName: string },
   { rejectValue: FirebaseErrorMessage }
->("user/fetchSignUp", async ({ email, password, userName, userSurname }, { rejectWithValue }) => {
+>("user/fetchSignUp", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const userEmail = (await userCredential).user.email;
     const name = userName;
-    const surname = userSurname;
-
-    return { userEmail, name, surname };
+    return { userEmail, name };
   } catch (error) {
     const firebaseError = error as { code: FirebaseErrorCode };
-
     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
   }
 });
 
 export const fetchSignIn = createAsyncThunk<
-  IUserEmail,
-  ISignIn,
+  { userEmail: string | null },
+  { email: string; password: string },
   { rejectValue: FirebaseErrorMessage }
 >("user/fetchSignIn", async ({ email, password }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const userEmail = userCredential.user.email;
-
     return { userEmail };
   } catch (error) {
     const firebaseError = error as { code: FirebaseErrorCode };
-
     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
   }
 });
 
-export const fetchSignOut = createAsyncThunk<
+export const fetchResetPassword = createAsyncThunk<
   void,
-  undefined,
+  { email: string },
   { rejectValue: FirebaseErrorMessage }
->("user/fetchSignOut", async (_, { rejectWithValue }) => {
+>("user/resetUserPassword", async ({ email }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
-    await signOut(auth);
+    await sendPasswordResetEmail(auth, email);
   } catch (error) {
     const firebaseError = error as { code: FirebaseErrorCode };
-
     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
   }
 });
@@ -97,7 +79,11 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     getUserName: (state, { payload }: PayloadAction<string>) => {
-      if (payload) state.name = payload;
+      state.name = payload;
+      state.email = payload;
+    },
+    getLogOutUser: (state, { payload }: PayloadAction<boolean>) => {
+      state.isAuth = payload;
     },
   },
 
@@ -105,53 +91,58 @@ const userSlice = createSlice({
     builder.addCase(fetchSignUp.pending, (state) => {
       state.isAuth = false;
       state.error = null;
+      state.isLoading = true;
     });
     builder.addCase(fetchSignUp.fulfilled, (state, { payload }) => {
       state.error = null;
       state.email = payload.userEmail;
-
       state.isAuth = true;
       state.name = payload.name;
-      state.surname = payload.surname;
+      state.isLoading = false;
     });
     builder.addCase(fetchSignUp.rejected, (state, { payload }) => {
       if (payload) {
         state.error = payload;
         state.isAuth = false;
+        state.isLoading = false;
       }
     });
+
     builder.addCase(fetchSignIn.pending, (state) => {
       state.isAuth = false;
       state.error = null;
+      state.isLoading = true;
     });
     builder.addCase(fetchSignIn.fulfilled, (state, { payload }) => {
       state.error = null;
       state.email = payload.userEmail;
-
+      state.isLoading = false;
       state.isAuth = true;
     });
     builder.addCase(fetchSignIn.rejected, (state, { payload }) => {
       if (payload) {
         state.error = payload;
         state.isAuth = true;
+        state.isLoading = false;
       }
     });
-    builder.addCase(fetchSignOut.pending, (state) => {
-      state.isAuth = true;
+
+    builder.addCase(fetchResetPassword.pending, (state) => {
+      state.isLoading = true;
       state.error = null;
     });
-    builder.addCase(fetchSignOut.fulfilled, (state) => {
+    builder.addCase(fetchResetPassword.fulfilled, (state) => {
+      state.isLoading = false;
       state.error = null;
-      state.isAuth = false;
     });
-    builder.addCase(fetchSignOut.rejected, (state, { payload }) => {
+    builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
       if (payload) {
+        state.isLoading = false;
         state.error = payload;
-        state.isAuth = true;
       }
     });
   },
 });
 
 export default userSlice.reducer;
-export const { getUserName } = userSlice.actions;
+export const { getUserName, getLogOutUser } = userSlice.actions;

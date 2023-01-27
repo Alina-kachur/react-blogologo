@@ -1,7 +1,7 @@
 import { BackHomeButton } from "components/BackHomeButton/BackHomeButton";
-import { useState, useCallback, memo } from "react";
+import { useState } from "react";
 import { StyledInput } from "components/Input/styles";
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import {
   ForgotText,
   ResetPasswordLink,
@@ -14,7 +14,7 @@ import {
 } from "./styles";
 import { ROUTE } from "router";
 import { Title } from "components/Title/Title";
-import { fetchSignIn, useAppDispatch } from "store";
+import { fetchSignIn, getUserInfo, useAppDispatch, useAppSelector } from "store";
 import { useNavigate } from "react-router-dom";
 
 interface IFormValues {
@@ -37,28 +37,11 @@ const validateRules = {
   },
 };
 
-export const SignInForm = memo(() => {
+export const SignInForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [isModalOpen, setModalOpen] = useState<boolean>(false);
-
-  const handleNavigate = () => {
-    // navigate(`/${ROUTE.USER_ACCOUNT}`);
-  };
-
-  const handleFormErrors: SubmitErrorHandler<IFormValues> = useCallback(() => {
-    setModalOpen(true);
-  }, []);
-
-  const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
-    dispatch(fetchSignIn(userInfo))
-      .then((_) => {
-        handleNavigate();
-      })
-      .finally(() => {
-        reset();
-      });
-  };
+  const { isLoading } = useAppSelector(getUserInfo);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register,
@@ -66,11 +49,31 @@ export const SignInForm = memo(() => {
     formState: { errors },
     reset,
   } = useForm<IFormValues>();
+
+  const userInfoToSave = JSON.parse(localStorage.getItem("userInfo")!);
+  if (userInfoToSave) {
+    userInfoToSave.isAuth = true;
+  }
+
+  const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
+    setErrorMessage(null);
+    dispatch(fetchSignIn(userInfo))
+      .unwrap()
+      .then(() => {
+        localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userInfoToSave));
+        navigate(`${ROUTE.HOME}`);
+      })
+      .catch((error) => {
+        setErrorMessage(error);
+        reset();
+      });
+  };
+
   return (
     <>
       <BackHomeButton />
       <Title>Sign In</Title>
-      <StyledSignInForm onSubmit={handleSubmit(onSubmit, handleFormErrors)}>
+      <StyledSignInForm onSubmit={handleSubmit(onSubmit)}>
         <SignInLabel>Email</SignInLabel>
         <StyledInput
           type="email"
@@ -96,4 +99,4 @@ export const SignInForm = memo(() => {
       </StyledSignInForm>
     </>
   );
-});
+};

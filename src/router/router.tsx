@@ -1,5 +1,6 @@
 import { MainTemplate, RequareAuth } from "components";
 import {
+  AccountPage,
   FavoritesPage,
   HomePage,
   NotFoundPage,
@@ -24,10 +25,11 @@ export const router = createBrowserRouter(
         <Route path={ROUTE.SEARCH} element={<SearchPage />} />
         <Route path={ROUTE.BLOG_INFO} element={<BlogInfoPage />} />
       </Route>
-      ,
       <Route element={<RequareAuth />}>
+        <Route path={ROUTE.USER_ACCOUNT} element={<AccountPage />} />
         <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
       </Route>
     </>,
   ),
+  { basename: "/react-blogologo" },
 );

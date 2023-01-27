@@ -27,14 +27,9 @@ interface ISelectOption {
   value: string;
   label: string;
 }
-export enum SortTitle {
-  AZ = "az",
-  ZA = "za",
+interface IUser {
+  name: string;
+  email: string;
+  isAuth: boolean;
 }
-export enum Period {
-  DAY = "Day",
-  WEEK = "Week",
-  MONTH = "Month",
-  YEAR = "Year",
-}
-export type { ISearch, IBlogAPI, ISelectOption };
+export type { ISearch, IBlogAPI, ISelectOption, IUser };

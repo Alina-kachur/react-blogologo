@@ -8,6 +8,8 @@ import {
 import styled from "styled-components";
 import { Color, S1 } from "ui";
 
+const FormWrapper = styled.div``;
+
 const StyledSignUpForm = styled(StyledSignInForm)``;
 const SignUpButton = styled(SignInButton)``;
 const SignUpLabel = styled(SignInLabel)``;
@@ -19,4 +21,12 @@ const TextErrors = styled.p`
   color: ${Color.ERROR};
   ${S1}
 `;
-export { StyledSignUpForm, SignUpLabel, SignUpButton, SignUpText, SignUpNavLink, TextErrors };
+export {
+  StyledSignUpForm,
+  SignUpLabel,
+  SignUpButton,
+  SignUpText,
+  SignUpNavLink,
+  TextErrors,
+  FormWrapper,
+};

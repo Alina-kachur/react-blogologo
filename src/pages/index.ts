@@ -6,6 +6,7 @@ import { SignUpPage } from "./SignUpPage/SignUpPage";
 import { ResetPasswordPage } from "./ResetPasswordPage/ResetPasswordPage";
 import { BlogInfoPage } from "./BlogInfoPage/BlogInfoPage";
 import { SearchPage } from "./SearchPage/SearchPage";
+import { AccountPage } from "./AccountPage/AccountPage";
 
 export {
   NotFoundPage,
@@ -16,4 +17,5 @@ export {
   ResetPasswordPage,
   BlogInfoPage,
   SearchPage,
+  AccountPage,
 };

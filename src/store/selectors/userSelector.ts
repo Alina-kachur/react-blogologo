@@ -1,3 +1,3 @@
-import { RootState } from "store/store";
+import { RootState } from "../store";
 
-export const setUser = (state: RootState) => state.user;
+export const getUserInfo = (state: RootState) => state.user;

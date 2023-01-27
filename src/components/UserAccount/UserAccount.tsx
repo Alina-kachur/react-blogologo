@@ -1,6 +1,6 @@
 import { SignInIcon } from "assets/icons";
 import { ROUTE } from "router";
-import { setUser, useAppSelector } from "store";
+import { getUserInfo, useAppSelector } from "store";
 import { StyledLink, StyledUserAccount, Text } from "./styles";
 import { memo } from "react";
 import { useWindowSize } from "hooks";
@@ -10,14 +10,14 @@ interface UserAccountProps {
 }
 
 export const UserAccount = ({ handleClose }: UserAccountProps) => {
-  const { name, surname, isAuth } = useAppSelector(setUser);
+  const { name, isAuth } = useAppSelector(getUserInfo);
   const { width = 0 } = useWindowSize();
 
   return (
     <StyledUserAccount>
       <StyledLink to={ROUTE.SIGN_IN} onClick={handleClose}>
         {width > 568 && <SignInIcon />}
-        <Text>{isAuth ? name + surname : "Sign in"}</Text>
+        <Text>{isAuth ? name : "Sign in"}</Text>
       </StyledLink>
     </StyledUserAccount>
   );

@@ -7,4 +7,5 @@ export enum ROUTE {
   RESET_PASSWORD = "reset-password",
   SEARCH = "search",
   BLOG_INFO = "articles/:id",
+  USER_ACCOUNT = "user-account",
 }
