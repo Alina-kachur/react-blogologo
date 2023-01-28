@@ -12,6 +12,7 @@ import {
   SourceLink,
 } from "./styles";
 import { memo } from "react";
+import { ROUTE } from "router";
 
 interface IProps {
   item: IBlogAPI;
@@ -22,7 +23,7 @@ export const BlogInfo = memo(({ item }: IProps) => {
 
   const navigate = useNavigate();
   const handleBack = () => {
-    navigate(-1);
+    navigate(ROUTE.HOME);
   };
   return (
     <StyledBlogInfo>

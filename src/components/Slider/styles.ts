@@ -1,14 +1,40 @@
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Media } from "ui";
 
-const StyledSlider = styled.div`
+const StyledSwiper = styled(Swiper)`
+  max-width: 1110px;
+  height: 450px;
+
+  ${Media.LG} {
+    max-width: 780px;
+  }
+  ${Media.MD} {
+    max-width: 700px;
+  }
+  ${Media.SM} {
+    max-width: 500px;
+  }
+  ${Media.XS} {
+    max-width: 300px;
+  }
+  ${Media.XXS} {
+    max-width: 290px;
+  }
+`;
+const StyledSlider = styled(SwiperSlide)`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-content: center;
-  /* background: grey; */
-  height: 500px;
-`;
-const Slide = styled.div`
-  padding-top: 30px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 `;
 
-export { StyledSlider, Slide };
+export { StyledSwiper, StyledSlider };

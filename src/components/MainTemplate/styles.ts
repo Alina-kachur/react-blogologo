@@ -9,8 +9,8 @@ const StyledMainTemplate = styled.div`
 `;
 
 const WrapperOutlet = styled.div`
-  flex-grow: 1;
-  display: grid;
+  display: inline-block;
+
   place-self: center;
   padding-bottom: 50px;
   width: 63%;
@@ -31,6 +31,9 @@ const WrapperOutlet = styled.div`
   }
   ${Media.XS} {
     width: 85%;
+  }
+  ${Media.XXS} {
+    width: 80%;
   }
 `;
 export { StyledMainTemplate, WrapperOutlet };

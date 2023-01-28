@@ -1,36 +1,50 @@
-import "keen-slider/keen-slider.min.css";
-import { Slide, StyledSlider } from "./styles";
-import { useKeenSlider } from "keen-slider/react";
-import { getBlog, useAppSelector } from "store";
+// import required modules
+import { FreeMode, Pagination, Navigation } from "swiper";
+import { fetchArticles, getBlog, useAppDispatch, useAppSelector } from "store";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 import { BlogListItem } from "components/BlogListItem/BlogListItem";
+import { StyledSlider, StyledSwiper } from "./styles";
+import { useWindowSize } from "hooks";
+import { IBlogAPI } from "types";
 
 export const Slider = () => {
-  const [ref] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: "free",
-    slides: {
-      perView: 3,
-      spacing: 15,
-    },
-  });
   const { articles } = useAppSelector(getBlog);
+  const { width = 0 } = useWindowSize();
+
+  const slidesPerView = () => {
+    if (width > 1100) {
+      return 3;
+    }
+    if (width <= 1100 && width > 768) {
+      return 2;
+    }
+    if (width <= 768) {
+      return 1;
+    }
+  };
 
   return (
-    <StyledSlider ref={ref} className="keen-slider">
+    <StyledSwiper
+      slidesPerView={slidesPerView()}
+      spaceBetween={30}
+      freeMode={true}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[FreeMode, Pagination]}
+      className="mySwiper"
+    >
       {Array.isArray(articles) &&
-        articles.map((article) => {
+        articles.map((article: IBlogAPI) => {
           return (
-            <Slide className="keen-slider__slide number-slide1">
-              <Link to={`/article/${article.id}`}>
-                <BlogListItem item={article} key={article.id} />
-              </Link>
-            </Slide>
+            <StyledSlider key={article.id}>
+              <BlogListItem item={article} />
+            </StyledSlider>
           );
         })}
-      {/* <Slide className="keen-slider__slide number-slide1">fdfgnfvb</Slide>
-      <Slide className="keen-slider__slide number-slide1">fdvb</Slide>
-      <Slide className="keen-slider__slide number-slide1">fdvb</Slide> */}
-    </StyledSlider>
+    </StyledSwiper>
   );
 };
