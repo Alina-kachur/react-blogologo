@@ -8,6 +8,23 @@ interface IProps {
   item: IBlogAPI;
 }
 
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+};
+
 export const BlogListItem = memo(({ item }: IProps) => {
   const { imageUrl, publishedAt, title, id } = item;
   const navigate = useNavigate();
@@ -21,7 +38,12 @@ export const BlogListItem = memo(({ item }: IProps) => {
   };
 
   return (
-    <StyledBlogListItem onClick={handleBlog}>
+    <StyledBlogListItem
+      variants={variants}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={handleBlog}
+    >
       <Link to={""}>
         <Image src={imageUrl} />
         <PublishedDate>{new Date(publishedAt).toLocaleDateString()}</PublishedDate>

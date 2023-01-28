@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { B2, Color, Media, S1 } from "ui";
 
-const StyledBlogListItem = styled.li`
+const StyledBlogListItem = styled(motion.li)`
   width: 353px;
   height: 390px;
   background-color: ${Color.WHITE_HEADER};

@@ -19,9 +19,13 @@ const StyledLink = styled(NavLink)`
 const Text = styled.p`
   ${S1}
   font-weight: 600;
-  color: ${Color.PRIMARY};
+  color: ${Color.PRIMARY_LIGHT};
   ${Media.SM} {
     font-size: 18px;
+  }
+  :hover {
+    color: ${Color.PRIMARY};
+    transition-duration: 0.5s;
   }
 `;
 

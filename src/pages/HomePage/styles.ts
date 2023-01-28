@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { B1, B2, Color, Media, S1 } from "ui";
 
-const WrapperHomePage = styled.div`
+const WrapperHomePage = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 40px;

@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Color } from "ui";
 import { H1, H2, H3 } from "ui/typography";
 
-const NotFoundContainer = styled.div`
+const NotFoundContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;

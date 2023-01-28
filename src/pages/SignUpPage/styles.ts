@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const WrapperPage = styled.div`
+const WrapperPage = styled(motion.div)`
   padding: 40px 0;
 `;
 
