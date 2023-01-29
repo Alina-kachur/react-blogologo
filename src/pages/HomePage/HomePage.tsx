@@ -28,6 +28,7 @@ export const HomePage = () => {
   const handleActiveTab = (value: string) => {
     setTabValue(value);
     toggleIsActive();
+    setParamsPage({ page: 0, current: 1 });
   };
 
   const handleTitleSort = (titleSort: ISelectOption | null) => {
@@ -50,6 +51,13 @@ export const HomePage = () => {
       current: paramsPage.current > 1212 ? 1212 : paramsPage.current - 1,
     });
     window.scrollTo(0, 0);
+  };
+  const handlePage = (cards: number, pageNumber: number) => {
+    setParamsPage({
+      page: paramsPage.page + cards,
+      current: paramsPage.current + pageNumber,
+    });
+    setIsActivePagination(true);
   };
 
   useEffect(() => {
@@ -94,19 +102,26 @@ export const HomePage = () => {
         <BlogList list={news} />
       )}
       <PaginationBlok>
-        {paramsPage.current === 1 ? (
-          true
-        ) : (
-          <PrevPageButton onClick={handlePrevPage}>Prev</PrevPageButton>
-        )}
-        <Pagination paramsPage={paramsPage.current - 1} isActive={!isActivePagination} />
-        <Pagination paramsPage={paramsPage.current} isActive={isActivePagination} />
-        <Pagination paramsPage={paramsPage.current + 1} isActive={!isActivePagination} />
-        {paramsPage.current === 1212 ? (
-          true
-        ) : (
-          <NextPageButton onClick={handleNextPage}>Next</NextPageButton>
-        )}
+        <PrevPageButton onClick={handlePrevPage} disabled={paramsPage.current <= 1}>
+          ⇦ Prev
+        </PrevPageButton>
+        <Pagination
+          handlePage={() => handlePage(0, 0)}
+          paramsPage={paramsPage.current}
+          isActive={isActivePagination}
+        />
+        <Pagination
+          handlePage={() => handlePage(12, 1)}
+          paramsPage={paramsPage.current + 1}
+          isActive={!isActivePagination}
+        />
+        <Pagination
+          handlePage={() => handlePage(24, 2)}
+          paramsPage={paramsPage.current + 2}
+          isActive={!isActivePagination}
+        />
+
+        <NextPageButton onClick={handleNextPage}>Next ⇨</NextPageButton>
       </PaginationBlok>
     </WrapperHomePage>
   );

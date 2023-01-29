@@ -30,19 +30,14 @@ const PaginationBlok = styled.div`
 `;
 
 const PrevPageButton = styled.button`
-  ${S1}
-  background: ${Color.LIGHT_CARDS};
+  padding: 10px 15px;
+  ${B2}
   border: none;
-  border-radius: 4px;
   color: ${Color.SECONDARY_TEXT};
   cursor: pointer;
-  padding: 10px;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
   :hover {
-    background: ${Color.WHITE};
-    :active {
-      background: ${Color.PRIMARY_LIGHT};
-    }
+    color: ${Color.PRIMARY_LIGHT};
   }
 `;
 
