@@ -3,9 +3,13 @@ import { ROUTE } from "router";
 import { IBlogAPI } from "types";
 import { Info, PublishedDate, StyledBlogListItem, Image } from "./styles";
 import { memo } from "react";
+import { removeFavorites, useAppDispatch } from "store";
 
 interface IProps {
   item: IBlogAPI;
+  onClick?: (item: IBlogAPI) => void;
+  list?: IBlogAPI[];
+  isFavorite?: boolean;
 }
 
 const variants = {
@@ -25,7 +29,7 @@ const variants = {
   },
 };
 
-export const BlogListItem = memo(({ item }: IProps) => {
+export const BlogListItem = memo(({ item, onClick, list }: IProps) => {
   const { imageUrl, publishedAt, title, id } = item;
   const navigate = useNavigate();
 
@@ -33,6 +37,7 @@ export const BlogListItem = memo(({ item }: IProps) => {
     navigate(generatePath(ROUTE.HOME + ROUTE.BLOG_INFO, { id: id }), {
       state: {
         item: item,
+        items: list,
       },
     });
   };

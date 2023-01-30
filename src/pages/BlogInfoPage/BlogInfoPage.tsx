@@ -2,12 +2,14 @@ import { BlogInfo, Slider, Spinner } from "components";
 import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import {
+  addToFavorites,
   fetchArticleById,
   fetchArticles,
   getArticlesById,
   useAppDispatch,
   useAppSelector,
 } from "store";
+import { IBlogAPI } from "types";
 import { RecommendationsTitle, WrapperBlogInfoPage } from "./styles";
 
 export const BlogInfoPage = () => {
@@ -15,6 +17,10 @@ export const BlogInfoPage = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const { isLoading, error } = useAppSelector(getArticlesById);
+
+  const handleAddToFavorites = (article: IBlogAPI) => {
+    dispatch(addToFavorites(article));
+  };
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
@@ -37,7 +43,7 @@ export const BlogInfoPage = () => {
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <BlogInfo item={location.state.item} />
+      <BlogInfo item={location.state.item} onClick={handleAddToFavorites} />
       <RecommendationsTitle>Recommendations</RecommendationsTitle>
       <Slider />
     </WrapperBlogInfoPage>

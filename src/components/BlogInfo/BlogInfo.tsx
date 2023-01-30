@@ -10,21 +10,34 @@ import {
   Info,
   SourceBlock,
   SourceLink,
+  Favorites,
 } from "./styles";
 import { memo } from "react";
 import { ROUTE } from "router";
+import { getUserInfo, useAppSelector } from "store";
+import { HeartIcon } from "assets/icons";
+import { getFavorite } from "store/selectors/favoritesSelector";
 
 interface IProps {
   item: IBlogAPI;
+  onClick: (item: IBlogAPI) => void;
 }
 
-export const BlogInfo = memo(({ item }: IProps) => {
+export const BlogInfo = memo(({ item, onClick }: IProps) => {
   const { title, imageUrl, url, summary, id } = item;
+  const { isAuth } = useAppSelector(getUserInfo);
+  const { favorites } = useAppSelector(getFavorite);
+  const isFavorites = favorites.map((favorite) => favorite.id).some((favorite) => favorite === id);
 
   const navigate = useNavigate();
   const handleBack = () => {
     navigate(ROUTE.HOME);
   };
+
+  const handleChangeFavorites = () => {
+    onClick(item);
+  };
+
   return (
     <StyledBlogInfo>
       <Navigate>
@@ -38,6 +51,15 @@ export const BlogInfo = memo(({ item }: IProps) => {
         <SourceLink href={url} target="_blank">
           Read more{" "}
         </SourceLink>
+        {isAuth && isFavorites ? (
+          <Favorites onClick={handleChangeFavorites}>
+            <HeartIcon height="30" width="30" fill="red" />
+          </Favorites>
+        ) : (
+          <Favorites onClick={handleChangeFavorites}>
+            <HeartIcon height="30" width="30" />
+          </Favorites>
+        )}
       </SourceBlock>
     </StyledBlogInfo>
   );

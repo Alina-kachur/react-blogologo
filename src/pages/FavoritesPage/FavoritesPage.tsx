@@ -1,6 +1,17 @@
-import { WrapperFavoritesPage } from "./styles";
+import { BlogListItem, Title } from "components";
+import { removeFavorites, useAppDispatch, useAppSelector } from "store";
+import { getFavorite } from "store/selectors/favoritesSelector";
+import { IBlogAPI } from "types";
+import { EmptyText, FavoritesList, WrapperFavoritesPage } from "./styles";
 
 export const FavoritesPage = () => {
+  const { favorites } = useAppSelector(getFavorite);
+  const dispatch = useAppDispatch();
+
+  const handleRemove = (article: IBlogAPI) => {
+    dispatch(removeFavorites(article));
+  };
+
   return (
     <WrapperFavoritesPage
       initial={{ opacity: 0, scale: 0.5 }}
@@ -10,6 +21,19 @@ export const FavoritesPage = () => {
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-    ></WrapperFavoritesPage>
+    >
+      <Title>Favorites</Title>
+      {favorites.length !== 0 ? (
+        <FavoritesList>
+          {favorites !== null &&
+            favorites &&
+            favorites.map((result: IBlogAPI) => {
+              return <BlogListItem key={result.id} item={result} isFavorite list={favorites} />;
+            })}
+        </FavoritesList>
+      ) : (
+        <EmptyText>Empty</EmptyText>
+      )}
+    </WrapperFavoritesPage>
   );
 };

@@ -8,7 +8,7 @@ import { fetchArticleById } from "./slices/blogInfoSlice/blogInfoSlice";
 import { fetchNews } from "./slices/blogSlice/blogSlice";
 import { fetchNewsById } from "./slices/blogInfoSlice/blogInfoSlice";
 import { addToFavorites } from "./slices/favoritesSlice/favoritesSlice";
-import { removeFavorite } from "./slices/favoritesSlice/favoritesSlice";
+import { removeFavorites } from "./slices/favoritesSlice/favoritesSlice";
 import { toggleTheme } from "./slices/themeSlice/themeSlice";
 import { fetchSignIn } from "./slices/userSlice/userSlice";
 import { fetchSignUp } from "./slices/userSlice/userSlice";
@@ -30,7 +30,7 @@ export {
   fetchNewsById,
   addToFavorites,
   toggleTheme,
-  removeFavorite,
+  removeFavorites,
   fetchSignIn,
   fetchSignUp,
   getBlog,
