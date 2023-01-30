@@ -13,66 +13,37 @@ import {
   TextErrors,
 } from "./styles";
 import { Title } from "components/Title/Title";
-import { fetchSignUp, getUserInfo, useAppDispatch, useAppSelector } from "store";
+import { fetchSignUp, useAppDispatch, useAppSelector } from "store";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IUser } from "types";
-
-const validateRules = {
-  name: {
-    required: "* Name is required",
-    maxLength: { value: 25, message: "* max 15 characters" },
-    pattern: {
-      value: /^[аa-яzАA-ЯZ\s]*$/,
-      message: "Only letters",
-    },
-  },
-  surname: {
-    required: "* Surname is required",
-    maxLength: { value: 25, message: "* max 15 characters" },
-    pattern: {
-      value: /^[аa-яzАA-ЯZ\s]*$/,
-      message: "* Only letters",
-    },
-  },
-  email: {
-    required: "* Email is required",
-    maxLength: { value: 25, message: "* max 15 characters" },
-    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-  },
-  password: {
-    required: "* Password is required",
-    maxLength: { value: 25, message: "* max 15 characters" },
-    minLength: {
-      value: 6,
-      message: "* min 6 characters",
-    },
-  },
-};
+import { getFormValidation } from "utils/getValidateRules";
+import { FormFieldName } from "config";
 
 export interface IFormValues {
   userName: string;
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
 export const SignUpForm = () => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const { isLoading } = useAppSelector(getUserInfo);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
     getValues,
-  } = useForm<IFormValues>();
+    reset,
+  } = useForm<IFormValues>({
+    mode: "onBlur",
+  });
+  const dispatch = useAppDispatch();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
-    const userInfoToSave: IUser = {
+    const userInfoStorage: IUser = {
       name: userInfo.userName,
       email: userInfo.email,
       isAuth: true,
@@ -80,14 +51,15 @@ export const SignUpForm = () => {
     dispatch(fetchSignUp(userInfo))
       .unwrap()
       .then(() => {
-        localStorage.setItem("userInfo", JSON.stringify(userInfoToSave));
-        navigate(ROUTE.HOME + ROUTE.USER_ACCOUNT);
+        localStorage.setItem("userInfo", JSON.stringify(userInfoStorage));
+        navigate(ROUTE.HOME);
         reset();
       })
       .catch((error) => {
         setErrorMessage(error);
       });
   };
+  console.log();
   return (
     <FormWrapper>
       <BackHomeButton />
@@ -97,23 +69,41 @@ export const SignUpForm = () => {
         <StyledInput
           type="name"
           placeholder="Your name"
-          {...register("userName", validateRules.name)}
+          {...register("userName", getFormValidation(FormFieldName.NAME))}
         />
         {errors.userName && <TextErrors>{errors.userName.message}</TextErrors>}
-        <SignUpLabel>Email</SignUpLabel>
+
+        <SignUpLabel>Email </SignUpLabel>
         <StyledInput
           type="email"
           placeholder="Your email"
-          {...register("email", validateRules.email)}
+          {...register("email", getFormValidation(FormFieldName.EMAIL))}
         />
         {errors.email && <TextErrors>{errors.email.message}</TextErrors>}
-        <SignUpLabel>Password</SignUpLabel>
+
+        <SignUpLabel>Password </SignUpLabel>
         <StyledInput
           type="password"
           placeholder="Your password"
-          {...register("password", validateRules.email)}
+          {...register("password", getFormValidation(FormFieldName.PASSWORD))}
         />
         {errors.password && <TextErrors>{errors.password.message}</TextErrors>}
+
+        <SignUpLabel>Password </SignUpLabel>
+        <StyledInput
+          type="password"
+          placeholder="Confirm password"
+          {...register("confirmPassword", {
+            ...getFormValidation(FormFieldName.CONFIRM_PASSWORD),
+            validate: (val: string) => {
+              if (watch("password") != val) {
+                return "Your passwords do no match";
+              }
+            },
+          })}
+        />
+        {errors.confirmPassword && <TextErrors>{errors.confirmPassword.message}</TextErrors>}
+
         <SignUpButton type="submit">Sign Up</SignUpButton>
         <SignUpText>
           Already have an account?

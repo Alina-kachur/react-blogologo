@@ -3,13 +3,15 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   sendPasswordResetEmail,
-  signOut,
+  signInWithEmailAndPassword,
+  updateEmail,
+  updatePassword,
 } from "firebase/auth";
 import { FirebaseErrorCode, FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
 interface IUserState {
   name: string;
-  email: null | string;
+  email: string | null;
   password: string;
   isAuth: boolean;
   error: null | string;
@@ -34,7 +36,7 @@ export const fetchSignUp = createAsyncThunk<
 >("user/fetchSignUp", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = createUserWithEmailAndPassword(auth, email, password);
     const userEmail = (await userCredential).user.email;
     const name = userName;
     return { userEmail, name };
@@ -51,7 +53,7 @@ export const fetchSignIn = createAsyncThunk<
 >("user/fetchSignIn", async ({ email, password }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const userEmail = userCredential.user.email;
     return { userEmail };
   } catch (error) {
@@ -64,7 +66,7 @@ export const fetchResetPassword = createAsyncThunk<
   void,
   { email: string },
   { rejectValue: FirebaseErrorMessage }
->("user/resetUserPassword", async ({ email }, { rejectWithValue }) => {
+>("user/fetchResetPassword", async ({ email }, { rejectWithValue }) => {
   try {
     const auth = getAuth();
     await sendPasswordResetEmail(auth, email);
@@ -82,11 +84,10 @@ const userSlice = createSlice({
       state.name = payload;
       state.email = payload;
     },
-    getLogOutUser: (state, { payload }: PayloadAction<boolean>) => {
-      state.isAuth = payload;
+    logOut: (state) => {
+      state.isAuth = false;
     },
   },
-
   extraReducers(builder) {
     builder.addCase(fetchSignUp.pending, (state) => {
       state.isAuth = false;
@@ -94,16 +95,16 @@ const userSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchSignUp.fulfilled, (state, { payload }) => {
-      state.error = null;
-      state.email = payload.userEmail;
       state.isAuth = true;
       state.name = payload.name;
+      state.email = payload.userEmail;
+      state.error = null;
       state.isLoading = false;
     });
     builder.addCase(fetchSignUp.rejected, (state, { payload }) => {
       if (payload) {
-        state.error = payload;
         state.isAuth = false;
+        state.error = payload;
         state.isLoading = false;
       }
     });
@@ -114,35 +115,34 @@ const userSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchSignIn.fulfilled, (state, { payload }) => {
-      state.error = null;
-      state.email = payload.userEmail;
-      state.isLoading = false;
       state.isAuth = true;
+      state.email = payload.userEmail;
+      state.error = null;
+      state.isLoading = false;
     });
     builder.addCase(fetchSignIn.rejected, (state, { payload }) => {
       if (payload) {
+        state.isAuth = false;
         state.error = payload;
-        state.isAuth = true;
         state.isLoading = false;
       }
     });
-
-    builder.addCase(fetchResetPassword.pending, (state) => {
-      state.isLoading = true;
-      state.error = null;
-    });
-    builder.addCase(fetchResetPassword.fulfilled, (state) => {
-      state.isLoading = false;
-      state.error = null;
-    });
-    builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
-      if (payload) {
-        state.isLoading = false;
-        state.error = payload;
-      }
-    });
+    // builder.addCase(fetchResetPassword.pending, (state) => {
+    //   state.error = null;
+    //   state.isLoading = true;
+    // });
+    // builder.addCase(fetchResetPassword.fulfilled, (state) => {
+    //   state.error = null;
+    //   state.isLoading = false;
+    // });
+    // builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
+    //   if (payload) {
+    //     state.error = payload;
+    //     state.isLoading = false;
+    //   }
+    // });
   },
 });
-
 export default userSlice.reducer;
-export const { getUserName, getLogOutUser } = userSlice.actions;
+
+export const { getUserName, logOut } = userSlice.actions;

@@ -7,7 +7,6 @@ import { fetchArticles } from "./slices/blogSlice/blogSlice";
 import { fetchArticleById } from "./slices/blogInfoSlice/blogInfoSlice";
 import { fetchNews } from "./slices/blogSlice/blogSlice";
 import { fetchNewsById } from "./slices/blogInfoSlice/blogInfoSlice";
-import { getUserName } from "./slices/userSlice/userSlice";
 import { addToFavorites } from "./slices/favoritesSlice/favoritesSlice";
 import { removeFavorite } from "./slices/favoritesSlice/favoritesSlice";
 import { toggleTheme } from "./slices/themeSlice/themeSlice";
@@ -15,8 +14,8 @@ import { fetchSignIn } from "./slices/userSlice/userSlice";
 import { fetchSignUp } from "./slices/userSlice/userSlice";
 import { getBlog } from "./selectors/blogSelector";
 import { getArticlesById } from "./selectors/blogInfoSelector";
-import { getUserInfo } from "./selectors/userSelector";
 import { fetchResetPassword } from "./slices/userSlice/userSlice";
+import { getUserInfo } from "./selectors/userSelector";
 
 export {
   store,
@@ -25,7 +24,6 @@ export {
   useAppSelector,
   setTheme,
   setSearch,
-  getUserName,
   fetchArticleById,
   fetchArticles,
   fetchNews,
@@ -34,9 +32,9 @@ export {
   toggleTheme,
   removeFavorite,
   fetchSignIn,
-  getUserInfo,
   fetchSignUp,
   getBlog,
   getArticlesById,
   fetchResetPassword,
+  getUserInfo,
 };

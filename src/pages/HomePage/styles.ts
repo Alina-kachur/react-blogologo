@@ -27,6 +27,9 @@ const TabsBlock = styled.div`
 const PaginationBlok = styled.div`
   display: flex;
   justify-content: space-between;
+  ${Media.SM} {
+    width: 100%;
+  }
 `;
 
 const PrevPageButton = styled.button`
