@@ -10,7 +10,7 @@ const StyledMainTemplate = styled.div`
 
 const WrapperOutlet = styled.div`
   display: inline-block;
-
+  min-height: 100vh;
   place-self: center;
   padding-bottom: 50px;
   width: 63%;

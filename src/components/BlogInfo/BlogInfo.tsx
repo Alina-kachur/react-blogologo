@@ -32,7 +32,7 @@ export const BlogInfo = memo(({ item }: IProps) => {
         <Post>{id} Post</Post>
       </Navigate>
       <Title>{title}</Title>
-      <Image src={imageUrl} />
+      <Image src={imageUrl} alt="image" />
       <Info>{summary}</Info>
       <SourceBlock>
         <SourceLink href={url} target="_blank">

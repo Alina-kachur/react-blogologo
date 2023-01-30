@@ -127,20 +127,20 @@ const userSlice = createSlice({
         state.isLoading = false;
       }
     });
-    // builder.addCase(fetchResetPassword.pending, (state) => {
-    //   state.error = null;
-    //   state.isLoading = true;
-    // });
-    // builder.addCase(fetchResetPassword.fulfilled, (state) => {
-    //   state.error = null;
-    //   state.isLoading = false;
-    // });
-    // builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
-    //   if (payload) {
-    //     state.error = payload;
-    //     state.isLoading = false;
-    //   }
-    // });
+    builder.addCase(fetchResetPassword.pending, (state) => {
+      state.error = null;
+      state.isLoading = true;
+    });
+    builder.addCase(fetchResetPassword.fulfilled, (state) => {
+      state.error = null;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
+      if (payload) {
+        state.error = payload;
+        state.isLoading = false;
+      }
+    });
   },
 });
 export default userSlice.reducer;

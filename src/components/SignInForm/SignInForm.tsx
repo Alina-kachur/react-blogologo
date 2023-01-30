@@ -52,7 +52,7 @@ export const SignInForm = () => {
       .unwrap()
       .then(() => {
         localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userInfoToSave));
-        navigate(`${ROUTE.HOME}`);
+        navigate(ROUTE.HOME);
       })
       .catch((error) => {
         setErrorMessage(error);

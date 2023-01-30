@@ -15,10 +15,18 @@ export const UserAccount = ({ handleClose }: UserAccountProps) => {
 
   return (
     <StyledUserAccount>
-      <StyledLink to={ROUTE.SIGN_IN} onClick={handleClose}>
-        {width > 568 && <SignInIcon />}
-        <Text>{isAuth ? name : "Sign in"}</Text>
-      </StyledLink>
+      {isAuth ? (
+        <StyledLink to={ROUTE.USER_ACCOUNT} onClick={handleClose}>
+          {" "}
+          {width > 568 && <SignInIcon />}
+          <Text>{isAuth ? name : "Sign in"}</Text>
+        </StyledLink>
+      ) : (
+        <StyledLink to={ROUTE.SIGN_IN} onClick={handleClose}>
+          {width > 568 && <SignInIcon />}
+          <Text>{isAuth ? name : "Sign in"}</Text>
+        </StyledLink>
+      )}
     </StyledUserAccount>
   );
 };

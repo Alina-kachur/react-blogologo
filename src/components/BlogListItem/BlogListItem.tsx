@@ -45,7 +45,7 @@ export const BlogListItem = memo(({ item }: IProps) => {
       onClick={handleBlog}
     >
       <Link to={""}>
-        <Image src={imageUrl} />
+        <Image src={imageUrl} alt="image" />
         <PublishedDate>{new Date(publishedAt).toLocaleDateString()}</PublishedDate>
         <Info>{title.length > 60 ? title.slice(0, 60) + "..." : title}</Info>
       </Link>
