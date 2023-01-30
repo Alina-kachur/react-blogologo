@@ -6,6 +6,7 @@ const StyledHeaderMenu = styled(motion.nav)`
   display: flex;
   gap: 2rem;
   align-items: center;
+  margin-right: 32px;
   ${Media.SM} {
     position: absolute;
     top: 100px;
@@ -21,6 +22,9 @@ const StyledHeaderMenu = styled(motion.nav)`
     background-color: inherit;
     opacity: 0;
     transform: translateX(-100%);
+  }
+  ${Media.XS} {
+    margin: 0;
   }
 `;
 export { StyledHeaderMenu };

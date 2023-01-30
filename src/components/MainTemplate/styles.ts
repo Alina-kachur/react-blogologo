@@ -33,7 +33,7 @@ const WrapperOutlet = styled.div`
     width: 85%;
   }
   ${Media.XXS} {
-    width: 90%;
+    width: 85%;
   }
 `;
 export { StyledMainTemplate, WrapperOutlet };

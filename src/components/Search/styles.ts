@@ -87,4 +87,8 @@ const StyledCloseIcon = styled(CloseIcon)`
   justify-self: flex-end;
 `;
 
-export { StyledSearch, StyledInput, StyledCloseIcon, StyledSearchIcon };
+const WrapperIcon = styled.div`
+  background-color: ${Color.WHITE_HEADER};
+`;
+
+export { StyledSearch, StyledInput, StyledCloseIcon, StyledSearchIcon, WrapperIcon };

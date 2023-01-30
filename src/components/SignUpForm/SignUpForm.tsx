@@ -19,6 +19,7 @@ import { useState } from "react";
 import { IUser } from "types";
 import { getFormValidation } from "utils/getValidateRules";
 import { FormFieldName } from "config";
+import { Modal } from "components/Modal/Modal";
 
 export interface IFormValues {
   userName: string;
@@ -33,14 +34,22 @@ export const SignUpForm = () => {
     handleSubmit,
     formState: { errors, isValid },
     watch,
-    getValues,
     reset,
   } = useForm<IFormValues>({
     mode: "onBlur",
   });
   const dispatch = useAppDispatch();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isActiveModal, setIsActiveModal] = useState(false);
   const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(ROUTE.HOME + ROUTE.USER_ACCOUNT);
+  };
+
+  const handleModal = () => {
+    setIsActiveModal(false);
+  };
 
   const onSubmit: SubmitHandler<IFormValues> = (userInfo) => {
     const userInfoStorage: IUser = {
@@ -57,11 +66,18 @@ export const SignUpForm = () => {
       })
       .catch((error) => {
         setErrorMessage(error);
+      })
+      .then(() => {
+        setIsActiveModal(true);
       });
   };
-  console.log();
+
   return (
     <FormWrapper>
+      {isActiveModal && !errorMessage && (
+        <Modal message="Your account has been created" handleClick={handleNavigate} />
+      )}
+      {isActiveModal && errorMessage && <Modal message={errorMessage} handleClick={handleModal} />}
       <BackHomeButton />
       <Title>Sign Up</Title>
       <StyledSignUpForm onSubmit={handleSubmit(onSubmit)}>

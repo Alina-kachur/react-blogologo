@@ -1,4 +1,10 @@
-import { StyledCloseIcon, StyledInput, StyledSearch, StyledSearchIcon } from "./styles";
+import {
+  StyledCloseIcon,
+  StyledInput,
+  StyledSearch,
+  StyledSearchIcon,
+  WrapperIcon,
+} from "./styles";
 import { HTMLInputTypeAttribute, ChangeEvent, FormEvent, useEffect } from "react";
 import { useDebounce, useInput, useToggle } from "hooks";
 import { setSearch } from "store";
@@ -48,7 +54,8 @@ export const Search = memo((props: ISearch) => {
     <>
       {isActiveSearch ? (
         <StyledSearch onSubmit={handleSearch} onClick={props.onClick}>
-          <StyledInput placeholder="Search..." type="search" {...titleWord} />
+          <StyledInput placeholder="Search..." type="search" {...titleWord}></StyledInput>
+
           <StyledCloseIcon onClick={handleSearchActive} />
         </StyledSearch>
       ) : (

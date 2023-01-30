@@ -32,4 +32,9 @@ interface IUser {
   email: string;
   isAuth: boolean;
 }
+export enum TargetPortal {
+  ROOT = "root",
+  MODAL = "modal",
+}
+
 export type { ISearch, IBlogAPI, ISelectOption, IUser };

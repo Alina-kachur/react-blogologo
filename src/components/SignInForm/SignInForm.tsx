@@ -18,6 +18,7 @@ import { fetchSignIn, useAppDispatch, useAppSelector } from "store";
 import { useNavigate } from "react-router-dom";
 import { getFormValidation } from "utils/getValidateRules";
 import { FormFieldName } from "config";
+import { Modal } from "components/Modal/Modal";
 
 interface IFormValues {
   email: string;
@@ -40,6 +41,15 @@ export const SignInForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isActiveModal, setIsActiveModal] = useState(false);
+
+  const handleNavigate = () => {
+    navigate(ROUTE.HOME + ROUTE.USER_ACCOUNT);
+  };
+
+  const handleModal = () => {
+    setIsActiveModal(false);
+  };
 
   const userInfoToSave = JSON.parse(localStorage.getItem("userInfo")!);
   if (userInfoToSave) {
@@ -52,16 +62,22 @@ export const SignInForm = () => {
       .unwrap()
       .then(() => {
         localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userInfoToSave));
-        navigate(ROUTE.HOME);
       })
       .catch((error) => {
         setErrorMessage(error);
         reset();
+      })
+      .then(() => {
+        setIsActiveModal(true);
       });
   };
 
   return (
     <>
+      {isActiveModal && !errorMessage && (
+        <Modal message="Login Successful" handleClick={handleNavigate} />
+      )}
+      {isActiveModal && errorMessage && <Modal message={errorMessage} handleClick={handleModal} />}
       <BackHomeButton />
       <Title>Sign In</Title>
       <StyledSignInForm onSubmit={handleSubmit(onSubmit)}>
