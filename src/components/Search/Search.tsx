@@ -1,18 +1,11 @@
-import {
-  StyledCloseIcon,
-  StyledInput,
-  StyledSearch,
-  StyledSearchIcon,
-  WrapperIcon,
-} from "./styles";
-import { HTMLInputTypeAttribute, ChangeEvent, FormEvent, useEffect } from "react";
+import { StyledCloseIcon, StyledInput, StyledSearch, StyledSearchIcon } from "./styles";
+import { HTMLInputTypeAttribute, ChangeEvent, FormEvent, useEffect, memo } from "react";
 import { useDebounce, useInput, useToggle } from "hooks";
 import { setSearch } from "store";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 import { useDispatch } from "react-redux";
-import { memo } from "react";
 
 interface ISearch {
   type: HTMLInputTypeAttribute;

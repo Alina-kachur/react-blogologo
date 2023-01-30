@@ -14,9 +14,8 @@ import {
 } from "./styles";
 import { memo } from "react";
 import { ROUTE } from "router";
-import { getUserInfo, useAppSelector } from "store";
-import { HeartIcon } from "assets/icons";
-import { getFavorite } from "store/selectors/favoritesSelector";
+import { getUserInfo, useAppSelector, getFavorite } from "store";
+import { HeartIcon } from "assets";
 
 interface IProps {
   item: IBlogAPI;

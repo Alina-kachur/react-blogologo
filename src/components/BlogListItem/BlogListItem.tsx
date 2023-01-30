@@ -3,7 +3,6 @@ import { ROUTE } from "router";
 import { IBlogAPI } from "types";
 import { Info, PublishedDate, StyledBlogListItem, Image } from "./styles";
 import { memo } from "react";
-import { removeFavorites, useAppDispatch } from "store";
 
 interface IProps {
   item: IBlogAPI;

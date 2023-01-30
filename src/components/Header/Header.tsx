@@ -1,8 +1,6 @@
 import { StyledHeader, StyledLink, StyledLogoIcon } from "./styles";
 import { ROUTE } from "router";
-import { useInput, useToggle, useWindowSize } from "hooks";
-import { Search } from "components/Search/Search";
-import { UserAccount } from "components/UserAccount/UserAccount";
+import { useToggle, useWindowSize } from "hooks";
 import { Burger } from "components/Burger/Burger";
 import { HeaderMenu } from "components/HeaderMenu/HeaderMenu";
 

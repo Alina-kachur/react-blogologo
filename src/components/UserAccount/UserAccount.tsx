@@ -1,16 +1,15 @@
-import { HeartIcon, SignInIcon } from "assets/icons";
 import { ROUTE } from "router";
 import { getUserInfo, useAppSelector } from "store";
 import { StyledLink, StyledLinkFav, StyledUserAccount, Text, WrapperLink } from "./styles";
 import { memo } from "react";
 import { useWindowSize } from "hooks";
-import { NavLink } from "react-router-dom";
+import { HeartIcon, SignInIcon } from "assets";
 
 interface UserAccountProps {
   handleClose: () => void;
 }
 
-export const UserAccount = ({ handleClose }: UserAccountProps) => {
+export const UserAccount = memo(({ handleClose }: UserAccountProps) => {
   const { name, isAuth } = useAppSelector(getUserInfo);
   const { width = 0 } = useWindowSize();
 
@@ -35,4 +34,4 @@ export const UserAccount = ({ handleClose }: UserAccountProps) => {
       )}
     </StyledUserAccount>
   );
-};
+});

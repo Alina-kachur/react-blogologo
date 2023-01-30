@@ -1,4 +1,4 @@
-import { CloseIcon, SearchIcon } from "assets/icons";
+import { CloseIcon, SearchIcon } from "assets";
 import styled from "styled-components";
 import { B1, Color, Media } from "ui";
 

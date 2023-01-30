@@ -1,4 +1,4 @@
-import { LogoIcon } from "assets/icons";
+import { LogoIcon } from "assets";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Color, Media } from "ui";

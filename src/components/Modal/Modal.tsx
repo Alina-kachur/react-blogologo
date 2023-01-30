@@ -1,6 +1,6 @@
 import { Portal } from "components/Portal/Portal";
 import { memo } from "react";
-import { TargetPortal } from "types/types";
+import { TargetPortal } from "types";
 import { Button, ModalInfo, ModalText, WrapperModal } from "./styles";
 
 interface IProps {

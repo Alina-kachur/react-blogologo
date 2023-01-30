@@ -17,7 +17,7 @@ import { fetchSignUp, useAppDispatch, useAppSelector } from "store";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IUser } from "types";
-import { getFormValidation } from "utils/getValidateRules";
+import { getFormValidation } from "utils";
 import { FormFieldName } from "config";
 import { Modal } from "components/Modal/Modal";
 

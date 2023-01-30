@@ -14,9 +14,9 @@ import {
 } from "./styles";
 import { ROUTE } from "router";
 import { Title } from "components/Title/Title";
-import { fetchSignIn, useAppDispatch, useAppSelector } from "store";
+import { fetchSignIn, useAppDispatch } from "store";
 import { useNavigate } from "react-router-dom";
-import { getFormValidation } from "utils/getValidateRules";
+import { getFormValidation } from "utils";
 import { FormFieldName } from "config";
 import { Modal } from "components/Modal/Modal";
 

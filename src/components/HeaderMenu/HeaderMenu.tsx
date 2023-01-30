@@ -1,6 +1,6 @@
 import { Search } from "components/Search/Search";
 import { UserAccount } from "components/UserAccount/UserAccount";
-import React from "react";
+import { memo } from "react";
 import { StyledHeaderMenu } from "./styles";
 
 interface MenuProps {
@@ -15,7 +15,7 @@ const menuVariants = {
   idle: {},
 };
 
-export const HeaderMenu = ({ isOpen, isMobile, handleClose }: MenuProps) => {
+export const HeaderMenu = memo(({ isOpen, isMobile, handleClose }: MenuProps) => {
   const currentVariant = isMobile ? (isOpen ? "open" : "closed") : "idle";
 
   return (
@@ -25,4 +25,4 @@ export const HeaderMenu = ({ isOpen, isMobile, handleClose }: MenuProps) => {
       <UserAccount handleClose={handleClose} />
     </StyledHeaderMenu>
   );
-};
+});

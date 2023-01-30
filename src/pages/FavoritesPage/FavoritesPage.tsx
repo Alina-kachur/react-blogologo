@@ -1,6 +1,5 @@
 import { BlogListItem, Title } from "components";
-import { removeFavorites, useAppDispatch, useAppSelector } from "store";
-import { getFavorite } from "store/selectors/favoritesSelector";
+import { removeFavorites, useAppDispatch, useAppSelector, getFavorite } from "store";
 import { IBlogAPI } from "types";
 import { EmptyText, FavoritesList, WrapperFavoritesPage } from "./styles";
 

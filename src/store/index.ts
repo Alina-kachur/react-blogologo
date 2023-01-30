@@ -16,6 +16,8 @@ import { getBlog } from "./selectors/blogSelector";
 import { getArticlesById } from "./selectors/blogInfoSelector";
 import { fetchResetPassword } from "./slices/userSlice/userSlice";
 import { getUserInfo } from "./selectors/userSelector";
+import { getFavorite } from "./selectors/favoritesSelector";
+import { logOut } from "./slices/userSlice/userSlice";
 
 export {
   store,
@@ -37,4 +39,6 @@ export {
   getArticlesById,
   fetchResetPassword,
   getUserInfo,
+  getFavorite,
+  logOut,
 };

@@ -1,6 +1,6 @@
 import { StyledButton } from "./styles";
 import { memo } from "react";
-import { BurgerIcon, CloseIcon } from "assets/icons";
+import { BurgerIcon, CloseIcon } from "assets";
 
 interface BurgerMenuProps {
   toggleMenu: () => void;
