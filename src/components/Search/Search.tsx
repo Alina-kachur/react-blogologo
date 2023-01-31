@@ -52,9 +52,7 @@ export const Search = memo((props: ISearch) => {
           <StyledCloseIcon onClick={handleSearchActive} />
         </StyledSearch>
       ) : (
-        <>
-          <StyledSearchIcon onClick={handleSearchActive} />
-        </>
+        <StyledSearchIcon onClick={handleSearchActive} />
       )}
     </>
   );

@@ -1,15 +1,15 @@
 import { BlogListItem, Title } from "components";
-import { removeFavorites, useAppDispatch, useAppSelector, getFavorite } from "store";
+import { useAppSelector, getFavorite } from "store";
 import { IBlogAPI } from "types";
 import { EmptyText, FavoritesList, WrapperFavoritesPage } from "./styles";
 
 export const FavoritesPage = () => {
   const { favorites } = useAppSelector(getFavorite);
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const handleRemove = (article: IBlogAPI) => {
-    dispatch(removeFavorites(article));
-  };
+  // const handleRemove = (article: IBlogAPI) => {
+  //   dispatch(removeFavorites(article));
+  // };
 
   return (
     <WrapperFavoritesPage

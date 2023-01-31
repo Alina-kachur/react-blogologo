@@ -1,10 +1,9 @@
-// import required modules
-import { FreeMode, Pagination, Navigation } from "swiper";
-import { fetchArticles, getBlog, useAppDispatch, useAppSelector } from "store";
+import { FreeMode, Pagination } from "swiper";
+import { getBlog, useAppSelector } from "store";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import { Link } from "react-router-dom";
+
 import { BlogListItem } from "components/BlogListItem/BlogListItem";
 import { StyledSlider, StyledSwiper } from "./styles";
 import { useWindowSize } from "hooks";
