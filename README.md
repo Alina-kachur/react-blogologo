@@ -1,5 +1,5 @@
 <div  align="center">
-<img src="/src/assets/icon/logo.svg" alt="Logo" width="200" height="125">
+<img src="/src/assets/icons/logo.svg" alt="Logo" width="200" height="125">
 <h1 align="center">
   <a href="https://github.com/Alina-kachur/react-blogologo">
     
