@@ -58,6 +58,7 @@ export const HomePage = () => {
       current: paramsPage.current + pageNumber,
     });
     setIsActivePagination(true);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
