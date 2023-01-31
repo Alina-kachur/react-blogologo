@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/react-blogologo/static/css/main.88474277.css",
-    "main.js": "/react-blogologo/static/js/main.797a67c3.js",
+    "main.css": "/react-blogologo/static/css/main.4d2dbb34.css",
+    "main.js": "/react-blogologo/static/js/main.e78dc716.js",
     "static/media/logo.svg": "/react-blogologo/static/media/logo.2cbfadbb5b4065547631417970afcb3f.svg",
+    "static/media/heart-icon.svg": "/react-blogologo/static/media/heart-icon.f52cc3000558c3485cb018d09bad9cd6.svg",
     "static/media/sign-in-icon.svg": "/react-blogologo/static/media/sign-in-icon.5a46bb3ab6ae548cebb41ffbd731ad5f.svg",
     "static/media/close-icon.svg": "/react-blogologo/static/media/close-icon.5e3a8b826e48de8d22ae660d3ca06f76.svg",
     "index.html": "/react-blogologo/index.html",
     "static/media/search.svg": "/react-blogologo/static/media/search.7f0947de943e2eef52a15b039a4ae707.svg",
     "static/media/burger-icon.svg": "/react-blogologo/static/media/burger-icon.e8b6d9a2dec556c5e36418de669613e9.svg",
-    "main.88474277.css.map": "/react-blogologo/static/css/main.88474277.css.map",
-    "main.797a67c3.js.map": "/react-blogologo/static/js/main.797a67c3.js.map"
+    "main.4d2dbb34.css.map": "/react-blogologo/static/css/main.4d2dbb34.css.map",
+    "main.e78dc716.js.map": "/react-blogologo/static/js/main.e78dc716.js.map"
   },
   "entrypoints": [
-    "static/css/main.88474277.css",
-    "static/js/main.797a67c3.js"
+    "static/css/main.4d2dbb34.css",
+    "static/js/main.e78dc716.js"
   ]
 }
