@@ -1,5 +1,5 @@
 <div  align="center">
-![Main logo](/src/assets/icons/logo.svg)
+![Logo](/src/icons/logo.svg)
 <h1 align="center">
   <a href="https://github.com/Alina-kachur/react-blogologo">
     
@@ -8,7 +8,7 @@
 </div>
 
 <div align="center">
-  BlogoLogo - web-application 
+  <h1 style="font-size: 40px; font-weight: 600">?BlogoLogo - Web-Application </h1>
   <br />
   <br />
   <a href="https://alina-kachur.github.io/react-blogologo/">View Demo</a>
@@ -89,7 +89,7 @@ Just install the project to see how it works.
 
 <br/>
 
--Your favorites list.
+- Your favorites list.
 
 ![Favotites](/readme/favorites.png)
 
