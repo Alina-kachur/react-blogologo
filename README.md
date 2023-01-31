@@ -1,5 +1,5 @@
 <div  align="center">
-![Logo](/src/icons/logo.svg)
+<img src="/src/assets/icon/logo.svg" alt="Logo" width="200" height="125">
 <h1 align="center">
   <a href="https://github.com/Alina-kachur/react-blogologo">
     
@@ -8,7 +8,7 @@
 </div>
 
 <div align="center">
-  <h1 style="font-size: 40px; font-weight: 600">?BlogoLogo - Web-Application </h1>
+  <h1 style="font-size: 40px; font-weight: 600">BlogoLogo - Web-Application </h1>
   <br />
   <br />
   <a href="https://alina-kachur.github.io/react-blogologo/">View Demo</a>
